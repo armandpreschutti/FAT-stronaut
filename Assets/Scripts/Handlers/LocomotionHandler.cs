@@ -15,8 +15,8 @@ public class LocomotionHandler : MonoBehaviour
     public void Start()
     {
         playerManager = GetComponent<PlayerManager>();
-        rb = GetComponent<Rigidbody2D>();
-        boxCol= GetComponent<BoxCollider2D>();
+        rb = playerManager.GetComponent<Rigidbody2D>();
+        boxCol= playerManager.GetComponent<BoxCollider2D>();
     }
 
     public void FixedUpdate()

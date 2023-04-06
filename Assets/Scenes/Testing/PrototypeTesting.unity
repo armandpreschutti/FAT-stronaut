@@ -130,12 +130,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7044618971156091156, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3933296097876243667, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4301216281746241223, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4419256147302431474, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419256147302431474, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419256147302431474, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}

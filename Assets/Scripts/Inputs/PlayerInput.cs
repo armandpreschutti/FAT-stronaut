@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public PlayerManager playerManager;
     public float moveHorizontal;
     public float moveVertical;
     public Vector2 moveDirection;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,6 @@ public class PlayerInput : MonoBehaviour
 
         // Get the movement direction
         moveDirection = new Vector2(moveHorizontal, moveVertical).normalized;
-
     }
+
 }

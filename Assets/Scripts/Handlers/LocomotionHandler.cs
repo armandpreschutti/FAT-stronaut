@@ -4,45 +4,54 @@ using UnityEngine;
 
 public class LocomotionHandler : MonoBehaviour
 {
-    public PlayerInput playerInput;
+
+    public PlayerManager playerManager;
     public Rigidbody2D rb;
     public BoxCollider2D boxCol;
     public float speed;
-    public float vel;
+
 
 
     public void Start()
     {
-        playerInput= GetComponent<PlayerInput>();
+        playerManager = GetComponent<PlayerManager>();
         rb = GetComponent<Rigidbody2D>();
         boxCol= GetComponent<BoxCollider2D>();
     }
 
     public void FixedUpdate()
-    {
-        PlayerMovement(playerInput.moveDirection);
+    { 
+        SetPlayerMovement(playerManager.playerInput.moveDirection, rb.velocity);
+        SetPlayerFacing(playerManager.playerInput.moveHorizontal, rb.velocity);
     }
 
-    public void PlayerMovement(Vector2 moveDirection)
+    public void SetPlayerMovement(Vector2 moveDirection, Vector2 velocity)
     {
-        /*rb.AddForce(moveDirection * speed);
-        Debug.Log(rb.velocity.magnitude);
-        if(rb.velocity.magnitude > 2) 
+        // Get the rigidbody velocity and store it
+        velocity = rb.velocity;
+
+        // Add the movement direction and speed to the stored velocity variable
+        velocity += moveDirection * speed * Time.fixedDeltaTime;
+
+        // Set the stored velocity variable to stop when top speed is reached
+        velocity = Vector2.ClampMagnitude(velocity, speed);
+
+        // Set the rigidbody velocity to the stored velocity variable
+        rb.velocity = velocity;
+    }
+
+    public void SetPlayerFacing(float horizontal, Vector2 velocity)
+    {
+        // Check if the current x value of the rigidbody velocity is less than zero
+        if(velocity.x < 0)
         {
-            rb.AddForce(moveDirection * speed);
+            // Set the x value of the scale to -1 to face left
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
-            rb.AddForce(moveDirection);
-        }*/
-        vel = rb.velocity.magnitude;
-        Debug.Log(vel);
-
-        Vector2 velocity = rb.velocity;
-        velocity += moveDirection * speed * Time.fixedDeltaTime;
-        velocity = Vector2.ClampMagnitude(velocity, speed);
-
-        rb.velocity = velocity;
-
+            // Set the x value of the scale to 1 to face right
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4419256147302431474}
+  - component: {fileID: 4222160875246629043}
   - component: {fileID: -8270126006490226539}
   - component: {fileID: -7044618971156091156}
   - component: {fileID: 4301216281746241223}
@@ -36,6 +37,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4222160875246629043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773363599430451509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4ec005dcb226842b42514670c481f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocomotionHandler: {fileID: 0}
+  playerInput: {fileID: 0}
 --- !u!114 &-8270126006490226539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890dc1288d9faf24e9d722e00132659f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   moveHorizontal: 0
   moveVertical: 0
   moveDirection: {x: 0, y: 0}
@@ -63,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624d32dd7643d4343987d13f256eb2ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerManager: {fileID: 0}
   rb: {fileID: 0}
   boxCol: {fileID: 0}
   speed: 1

@@ -6,21 +6,27 @@ public class TitleMenuHandler : MonoBehaviour
 {
     public GameManager gameManager;
 
-    // Start is called before the first frame update
-    public void Awake()
+    /// <summary>
+    /// On start, this function is called
+    /// </summary>
+    public void Start()
     {
-        
-        gameManager = GameManager.GetInstance();
-
+        SetComponents();
     }
 
-    // Update is called once per frame
-    public void Update()
-    {
-        
-    }
-    public void PlayGame()
+    /// <summary>
+    /// When called, this function starts game
+    /// </summary>
+    public void EnterGame()
     {
         gameManager.levelManager.NextScene();
+    }
+
+    /// <summary>
+    /// When called, this function sets all components needed
+    /// </summary>
+    public void SetComponents()
+    {
+        gameManager = GameManager.GetInstance();
     }
 }

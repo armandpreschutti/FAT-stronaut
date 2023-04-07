@@ -6,32 +6,32 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public PlayerManager playerManager;
+
+    public Vector2 moveDirection;
     public float moveHorizontal;
     public float moveVertical;
-    public Vector2 moveDirection;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// Once every frame, this function is called
+    /// </summary>
     void Update()
     {
         GetAxisInput();
     }
 
+    /// <summary>
+    /// When called, this function gets the player axis inputs and sets them to a correlating variable
+    /// </summary>
     public void GetAxisInput()
     {
-        // Get the horizontal axis input
+        // Set the horizontal axis input variable
         moveHorizontal = Input.GetAxis("Horizontal");
 
-        // Get the vertical axis input
+        // Set the vertical axis input variable
         moveVertical = Input.GetAxis("Vertical");
 
-        // Get the movement direction
+        // Set the movement direction input vector
         moveDirection = new Vector2(moveHorizontal, moveVertical).normalized;
     }
 

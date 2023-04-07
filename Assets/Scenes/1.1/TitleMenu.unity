@@ -949,7 +949,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2048227162}
         m_TargetAssemblyTypeName: TitleMenuHandler, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: EnterGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

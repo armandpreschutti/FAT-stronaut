@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ShipHubHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameManager gameManager;
+
+    /// <summary>
+    /// On start, this function is called
+    /// </summary>
     void Start()
     {
-        
+        SetComponents();
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// When called, this function sets all components needed
+    /// </summary>
+    public void SetComponents()
     {
-        
+        gameManager = GameManager.GetInstance();
     }
 }

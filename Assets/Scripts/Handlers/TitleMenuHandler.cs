@@ -9,7 +9,7 @@ public class TitleMenuHandler : MonoBehaviour
     // Start is called before the first frame update
     public void Awake()
     {
-        Debug.Log("tits");
+        
         gameManager = GameManager.GetInstance();
 
     }

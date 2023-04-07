@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/1.1/ShipHub.unity
     guid: c0858366f6d34d64dbcbab78bf3c8dc4
   - enabled: 1
-    path: Assets/Scenes/Testing/PrototypeTesting.unity
-    guid: da478f3a0d86916418ce4001a15ef4e3
+    path: Assets/Scenes/1.1/SpaceExploration.unity
+    guid: 1323abbbafe280247aabf0155ab9f1a8
   m_configObjects: {}

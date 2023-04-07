@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     public PlayerManager playerManager;
     public bool debugMode;
 
+
+
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -39,7 +42,6 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log("Input Connected");
                 levelManager.NextScene();
             }
             if (Input.GetButtonDown("Fire2"))
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
        
     }
-    public void SetPlayer()
+    public void SetPlayer(PlayerManager playerManager)
     {
         playerManager = FindObjectOfType<PlayerManager>();
     }

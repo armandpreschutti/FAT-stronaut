@@ -50,7 +50,6 @@ public class LevelManager : MonoBehaviour
 
     public void NextScene()
     {
-        Debug.Log("NEXT");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }

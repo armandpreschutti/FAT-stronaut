@@ -50,11 +50,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4ec005dcb226842b42514670c481f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   rb: {fileID: 0}
   boxCol: {fileID: 0}
   locomotionHandler: {fileID: 0}
   playerInput: {fileID: 0}
   jetPackParticleSystem: {fileID: 0}
+  jetActive: 0
 --- !u!114 &-8270126006490226539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +187,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &8538687013701008659
 GameObject:
   m_ObjectHideFlags: 0

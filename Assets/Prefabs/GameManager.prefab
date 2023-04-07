@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  currentScene: 0
 --- !u!114 &2198436844683148523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +61,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   playerManager: {fileID: 0}
+  debugMode: 1

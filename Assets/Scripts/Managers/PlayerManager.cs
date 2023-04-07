@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager playerInstance;
     public GameManager gameManager;
     public Rigidbody2D rb;
     public BoxCollider2D boxCol;
@@ -14,7 +15,20 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (playerInstance == null)
+        {
+            playerInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public static PlayerManager GetInstance()
+    {
+        return playerInstance;
     }
 
     // Start is called before the first frame update
@@ -26,7 +40,6 @@ public class PlayerManager : MonoBehaviour
         boxCol= GetComponent<BoxCollider2D>();
         jetPackParticleSystem = GetComponentInChildren<ParticleSystem>();
         gameManager= FindObjectOfType<GameManager>();
-        gameManager.SetPlayer();
     }
 
 }

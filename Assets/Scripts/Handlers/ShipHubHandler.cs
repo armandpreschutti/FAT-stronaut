@@ -5,13 +5,15 @@ using UnityEngine;
 public class ShipHubHandler : MonoBehaviour
 {
     public GameManager gameManager;
+    public Transform startLocation;
 
     /// <summary>
     /// On start, this function is called
     /// </summary>
-    void Start()
+    public void Start()
     {
         SetComponents();
+        SetPlayerState(startLocation.transform.position);
     }
 
     /// <summary>
@@ -20,5 +22,12 @@ public class ShipHubHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
+        gameManager.SetPlayer();
+    }
+    
+    public void SetPlayerState(Vector3 position)
+    {
+        gameManager.playerManager.transform.position = position;
+        gameManager.playerManager.jetPackHandler.SetJetInactive();
     }
 }

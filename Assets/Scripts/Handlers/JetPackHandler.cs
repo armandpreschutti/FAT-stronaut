@@ -5,6 +5,7 @@ using UnityEngine;
 public class JetPackHandler : MonoBehaviour
 {
     public PlayerManager playerManager;
+    public bool jetActive;
 
     /// <summary>
     /// On start, this function is called
@@ -28,7 +29,7 @@ public class JetPackHandler : MonoBehaviour
     public void SetJetParticleSystem()
     {
         // Check if the the jet is active
-        if (playerManager.jetActive)
+        if (jetActive)
         {
             // Check if there is any player movement input
             if (playerManager.playerInput.moveDirection.magnitude > 0)
@@ -44,8 +45,19 @@ public class JetPackHandler : MonoBehaviour
         }
         else
         {
+            // Turn off Jet Pack
+            playerManager.jetPackParticleSystem.Stop();
             return;
         }
-       
+    }
+
+    public void SetJetActive()
+    {
+        jetActive = true;
+    }
+
+    public void SetJetInactive()
+    {
+        jetActive = false;
     }
 }

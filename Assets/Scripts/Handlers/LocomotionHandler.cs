@@ -36,7 +36,7 @@ public class LocomotionHandler : MonoBehaviour
     public void SetMovementMode(Vector2 moveDirection, Vector2 velocity)
     {
         // Check if jet is active
-        if (playerManager.jetActive)
+        if (playerManager.jetPackHandler.jetActive)
         {
             // Enable jet mode
             SetJetMovement(moveDirection, velocity);

@@ -11,8 +11,10 @@ public class PlayerManager : MonoBehaviour
     public LocomotionHandler locomotionHandler;
     public PlayerInput playerInput;
     public ParticleSystem jetPackParticleSystem;
+    public JetPackHandler jetPackHandler;
 
-    public bool jetActive;
+
+    
 
     /// <summary>
     /// On awake, this function sets this game object to a player manager singleton
@@ -63,6 +65,6 @@ public class PlayerManager : MonoBehaviour
         boxCol = GetComponent<BoxCollider2D>();
         jetPackParticleSystem = GetComponentInChildren<ParticleSystem>();
         gameManager = FindObjectOfType<GameManager>();
+        jetPackHandler = FindObjectOfType<JetPackHandler>();
     }
-
 }

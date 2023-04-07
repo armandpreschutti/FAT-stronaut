@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using Cinemachine;
 
-public class SpaceExplorationHandler : MonoBehaviour
+public class CameraHandler : MonoBehaviour
 {
     public GameManager gameManager;
-    public Transform startLocation;
+    public CinemachineVirtualCamera vCam;
+    public Transform cameraTarget;
 
     /// <summary>
     /// On start, this function is called
@@ -14,7 +16,7 @@ public class SpaceExplorationHandler : MonoBehaviour
     void Start()
     {
         SetComponents();
-        SetPlayerState(startLocation.transform.position);
+        SetCameraTarget(cameraTarget);
     }
 
     /// <summary>
@@ -23,12 +25,17 @@ public class SpaceExplorationHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
-        gameManager.SetPlayer();
+        vCam = GetComponent<CinemachineVirtualCamera>();
+        cameraTarget = PlayerManager.GetInstance().transform;
     }
 
-    public void SetPlayerState(Vector3 position)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="target"></param>
+    public void SetCameraTarget(Transform target)
     {
-        gameManager.playerManager.transform.position = position;
-        gameManager.playerManager.jetPackHandler.SetJetActive();
+        vCam.Follow = target;
+        vCam.LookAt = target;
     }
 }

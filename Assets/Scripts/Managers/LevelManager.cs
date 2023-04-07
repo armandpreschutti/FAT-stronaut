@@ -16,17 +16,17 @@ public class LevelManager : MonoBehaviour
     /// <summary>
     /// On start, this function is called
     /// </summary>
-    void Start()
+    public void Start()
     {
         SetComponents();
-        SwitchScene(currentScene);
+        //SwitchScene(currentScene);
     }
 
     /// <summary>
     /// When called, this function takes an integer and switches the scene to the correlating case number
     /// </summary>
     /// <param name="scene">destination scene</param>
-    void SwitchScene(int scene)
+    public void SwitchScene(int scene)
     {
         // Check the integer passed through parameter
         switch (scene)

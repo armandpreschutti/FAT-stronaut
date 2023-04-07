@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3933296097876243667}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  moveDirection: {x: 0, y: 0}
   moveHorizontal: 0
   moveVertical: 0
-  moveDirection: {x: 0, y: 0}
 --- !u!114 &-7044618971156091156
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
     /// When called, this function sets the player variable in game manager
     /// </summary>
     /// <param name="playerManager"></param>
-    public void SetPlayer(PlayerManager playerManager)
+    public void SetPlayer()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = PlayerManager.GetInstance();
     }
 
     /// <summary>

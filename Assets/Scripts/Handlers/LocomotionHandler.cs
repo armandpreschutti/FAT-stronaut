@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LocomotionHandler : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LocomotionHandler : MonoBehaviour
     public Rigidbody2D rb;
     public BoxCollider2D boxCol;
     public float speed;
+    
 
 
 
@@ -27,17 +29,15 @@ public class LocomotionHandler : MonoBehaviour
 
     public void SetPlayerMovement(Vector2 moveDirection, Vector2 velocity)
     {
-        // Get the rigidbody velocity and store it
-        velocity = rb.velocity;
-
-        // Add the movement direction and speed to the stored velocity variable
-        velocity += moveDirection * speed * Time.fixedDeltaTime;
-
-        // Set the stored velocity variable to stop when top speed is reached
-        velocity = Vector2.ClampMagnitude(velocity, speed);
-
-        // Set the rigidbody velocity to the stored velocity variable
-        rb.velocity = velocity;
+        if(playerManager.jetActive)
+        {
+            SetJetPackMovement(moveDirection, velocity);
+        }
+        else
+        {
+            SetWalkMovement(moveDirection, velocity);
+        }
+          
     }
 
     public void SetPlayerFacing(float horizontal, Vector2 velocity)
@@ -53,5 +53,34 @@ public class LocomotionHandler : MonoBehaviour
             // Set the x value of the scale to 1 to face right
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+    public void SetJetPackMovement(Vector2 moveDirection, Vector2 velocity)
+    {
+        // Get the rigidbody velocity and store it
+        velocity = rb.velocity;
+
+        // Add the movement direction and speed to the stored velocity variable
+        velocity += moveDirection * speed * Time.fixedDeltaTime;
+
+        // Set the stored velocity variable to stop when top speed is reached
+        velocity = Vector2.ClampMagnitude(velocity, speed);
+
+        // Set the rigidbody velocity to the stored velocity variable
+        rb.velocity = velocity;
+    }
+
+    public void SetWalkMovement(Vector2 moveDirection, Vector2 velocity)
+    {
+        // Get the rigidbody velocity and store it
+        velocity = rb.velocity;
+
+        // Add the movement direction and speed to the stored velocity variable
+        velocity = moveDirection * speed;
+
+        /*// Set the stored velocity variable to stop when top speed is reached
+        velocity = Vector2.ClampMagnitude(velocity, speed);
+*/
+        // Set the rigidbody velocity to the stored velocity variable
+        rb.velocity = velocity;
     }
 }

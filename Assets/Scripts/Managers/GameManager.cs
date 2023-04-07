@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public LevelManager levelManager;
     public PlayerManager playerManager;
+    public bool debugMode;
 
     private void Awake()
     {
@@ -30,22 +31,33 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         levelManager= GetComponent<LevelManager>();
-        playerManager= GetComponent<PlayerManager>();
-
     }
 
     public void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(debugMode)
         {
-            Debug.Log("Input Connected");
-            levelManager.NextScene();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log("Input Connected");
+                levelManager.NextScene();
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                levelManager.PreviousScene();
+            }
         }
-        if (Input.GetButtonDown("Fire2"))
+        else
         {
-            levelManager.PreviousScene();
+            return;
         }
+       
     }
+    public void SetPlayer()
+    {
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
+
 
 
 }

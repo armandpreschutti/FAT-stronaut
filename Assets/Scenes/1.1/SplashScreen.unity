@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 506616784}
   - component: {fileID: 506616786}
   m_Layer: 0
-  m_Name: SplashScreenManager
+  m_Name: SplashScreenHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

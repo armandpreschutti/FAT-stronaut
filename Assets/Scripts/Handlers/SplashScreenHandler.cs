@@ -10,14 +10,18 @@ public class SplashScreenHandler : MonoBehaviour
 
     private void Start()
     {
-        gameManager= FindObjectOfType<GameManager>();
-
-        Invoke("EndSplashScreen", splashDuration);
+        gameManager = GameManager.GetInstance();
+        StartSplashScreen(splashDuration);
+        
+    }
+    public void StartSplashScreen(float duration)
+    {
+        Invoke("EndSplashScreen", duration);
     }
 
     public void EndSplashScreen()
     {
-        gameManager.levelManager.NextScene();
+        gameManager.levelManager.GoToScene(1);
     }
    
 }

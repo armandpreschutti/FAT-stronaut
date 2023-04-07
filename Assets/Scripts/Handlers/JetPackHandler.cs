@@ -19,16 +19,24 @@ public class JetPackHandler : MonoBehaviour
     }
     public void SetJetPackParticleSystem()
     {
-        // Check to see if there is any player movement input
-        if(playerManager.playerInput.moveDirection.magnitude > 0)
+        if (playerManager.jetActive)
         {
-            // Turn on Jet Pack
-            playerManager.jetPackParticleSystem.Play();
+            // Check to see if there is any player movement input
+            if (playerManager.playerInput.moveDirection.magnitude > 0)
+            {
+                // Turn on Jet Pack
+                playerManager.jetPackParticleSystem.Play();
+            }
+            else
+            {
+                // Turn off Jet Pack
+                playerManager.jetPackParticleSystem.Stop();
+            }
         }
         else
         {
-            // Turn off Jet Pack
-            playerManager.jetPackParticleSystem.Stop(); 
+            return;
         }
+       
     }
 }

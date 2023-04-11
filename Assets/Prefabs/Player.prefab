@@ -56,7 +56,7 @@ MonoBehaviour:
   locomotionHandler: {fileID: 0}
   playerInput: {fileID: 0}
   jetPackParticleSystem: {fileID: 0}
-  jetActive: 0
+  jetPackHandler: {fileID: 0}
 --- !u!114 &-8270126006490226539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5014,3 +5014,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  jetActive: 0

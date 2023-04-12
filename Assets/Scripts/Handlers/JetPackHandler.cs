@@ -67,4 +67,18 @@ public class JetPackHandler : MonoBehaviour
     {
         jetActive = false;
     }
+
+    public void DestroyAllParticles()
+    {
+        playerManager.jetPackParticleSystem.Stop(); // Stop the particle system to prevent new particles from being generated
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[playerManager.jetPackParticleSystem.particleCount]; // Create an array to store all particles in the system
+        playerManager.jetPackParticleSystem.GetParticles(particles); // Get all particles in the system and store them in the array
+
+        for (int i = 0; i < particles.Length; i++)
+        {
+            particles[i].remainingLifetime = 0; // Set the remaining lifetime of each particle to 0 to destroy them instantly
+        }
+
+        playerManager.jetPackParticleSystem.SetParticles(particles, particles.Length); // Set the particles in the system to the modified array to destroy them
+    }
 }

@@ -162,6 +162,7 @@ public class SuitHandler : MonoBehaviour
         exitButton = GameObject.Find("ExitButton");
         SetSelectionButtons(false);
         enterButton.SetActive(false);
+        gameManager.playerManager.jetPackHandler.DestroyAllParticles();
     }
 
     /// <summary>

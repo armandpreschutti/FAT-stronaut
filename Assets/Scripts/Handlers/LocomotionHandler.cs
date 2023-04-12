@@ -41,11 +41,12 @@ public class LocomotionHandler : MonoBehaviour
             // Enable jet mode
             SetJetMovement(moveDirection, velocity);
         }
-        else
+        else if(!playerManager.jetPackHandler.jetActive)
         {
             // Enable walk mode
             SetWalkMovement(moveDirection, velocity);
         }
+
 
     }
 

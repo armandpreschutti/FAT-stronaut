@@ -45,7 +45,7 @@ public class DoorHandler : MonoBehaviour
     /// </summary>
     public void SetTwoWayDoor(int destination)
     {
-        // Load destination "a" side of the door
+        // Load destination scene of the door
         gameManager.levelManager.SwitchScene(destination);
     }
 

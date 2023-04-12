@@ -25,6 +25,10 @@ public class ShipHubHandler : MonoBehaviour
         gameManager.SetPlayer();
     }
     
+    /// <summary>
+    /// When called, this function sets the player state variables for the ship hub
+    /// </summary>
+    /// <param name="position"></param>
     public void SetPlayerState(Vector3 position)
     {
         gameManager.playerManager.transform.position = position;

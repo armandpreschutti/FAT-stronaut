@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     public Vector2 moveDirection;
     public float moveHorizontal;
     public float moveVertical;
+    public bool disableMovement;
 
 
     /// <summary>
@@ -17,13 +18,29 @@ public class PlayerInput : MonoBehaviour
     /// </summary>
     void Update()
     {
-        GetAxisInput();
+        SetPlayerAxisInputState();
     }
 
     /// <summary>
-    /// When called, this function gets the player axis inputs and sets them to a correlating variable
+    /// When called, this function sets the state of the player axis input
     /// </summary>
-    public void GetAxisInput()
+    public void SetPlayerAxisInputState()
+    {
+        // Check if the player axis input is disabled
+        if (!disableMovement)
+        {
+            EnableAxisInput();
+        }
+        else
+        {
+            DisableAxisInput();
+        }
+    }
+
+    /// <summary>
+    /// When called, this function gets the player axis input and sets them to a correlating variable
+    /// </summary>
+    public void EnableAxisInput()
     {
         // Set the horizontal axis input variable
         moveHorizontal = Input.GetAxis("Horizontal");
@@ -33,6 +50,14 @@ public class PlayerInput : MonoBehaviour
 
         // Set the movement direction input vector
         moveDirection = new Vector2(moveHorizontal, moveVertical).normalized;
+    }
+
+    /// <summary>
+    /// When called this function disables the player axis input
+    /// </summary>
+    public void DisableAxisInput()
+    {
+        moveDirection= Vector2.zero;
     }
 
 }

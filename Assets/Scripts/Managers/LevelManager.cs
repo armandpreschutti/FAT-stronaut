@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour
     public void Start()
     {
         SetComponents();
-        //SwitchScene(currentScene);
     }
 
     /// <summary>

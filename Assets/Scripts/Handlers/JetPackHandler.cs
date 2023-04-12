@@ -51,11 +51,18 @@ public class JetPackHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When called, this function activates the players jet
+    /// </summary>
     public void SetJetActive()
     {
         jetActive = true;
     }
 
+
+    /// <summary>
+    /// When called, this function deactivates the players jet
+    /// </summary>
     public void SetJetInactive()
     {
         jetActive = false;

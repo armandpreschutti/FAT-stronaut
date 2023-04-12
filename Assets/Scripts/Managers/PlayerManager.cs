@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerInput playerInput;
     public ParticleSystem jetPackParticleSystem;
     public JetPackHandler jetPackHandler;
+    public int suitID;
 
 
     

@@ -26,9 +26,16 @@ public class SpaceExplorationHandler : MonoBehaviour
         gameManager.SetPlayer();
     }
 
+    /// <summary>
+    /// When called, this function sets the space exploration state of the player
+    /// </summary>
+    /// <param name="position"></param>
     public void SetPlayerState(Vector3 position)
     {
+        // Set the player position to desired position
         gameManager.playerManager.transform.position = position;
+
+        // Set the player jet to active
         gameManager.playerManager.jetPackHandler.SetJetActive();
     }
 }

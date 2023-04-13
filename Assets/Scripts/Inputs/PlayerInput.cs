@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public PlayerManager playerManager;
-
     public Vector2 moveDirection;
     public float moveHorizontal;
     public float moveVertical;

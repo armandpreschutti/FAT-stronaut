@@ -5,12 +5,11 @@ using UnityEngine;
 public class JetPackHandler : MonoBehaviour
 {
     public PlayerManager playerManager;
-    public bool jetActive;
 
     /// <summary>
     /// On start, this function is called
     /// </summary>
-    void Start()
+    public void Awake()
     {
         playerManager = GetComponentInParent<PlayerManager>();
     }
@@ -18,7 +17,7 @@ public class JetPackHandler : MonoBehaviour
     /// <summary>
     /// Once every .02 seconds, this function is called
     /// </summary>
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         SetJetParticleSystem();
     }
@@ -28,57 +27,40 @@ public class JetPackHandler : MonoBehaviour
     /// </summary>
     public void SetJetParticleSystem()
     {
-        // Check if the the jet is active
-        if (jetActive)
+        // Check if there is any player movement input
+        if (playerManager.playerInput.moveDirection.magnitude > 0)
         {
-            // Check if there is any player movement input
-            if (playerManager.playerInput.moveDirection.magnitude > 0)
-            {
-                // Turn on Jet Pack
-                playerManager.jetPackParticleSystem.Play();
-            }
-            else
-            {
-                // Turn off Jet Pack
-                playerManager.jetPackParticleSystem.Stop();
-            }
+            // Turn on Jet Pack
+            playerManager.jetPackParticleSystem.Play();
         }
         else
         {
             // Turn off Jet Pack
             playerManager.jetPackParticleSystem.Stop();
-            return;
         }
     }
 
     /// <summary>
-    /// When called, this function activates the players jet
+    /// When called, this function destroys all particles currently running in particle system
     /// </summary>
-    public void SetJetActive()
-    {
-        jetActive = true;
-    }
-
-
-    /// <summary>
-    /// When called, this function deactivates the players jet
-    /// </summary>
-    public void SetJetInactive()
-    {
-        jetActive = false;
-    }
-
     public void DestroyAllParticles()
     {
+        // Stop system from generating new particles
         playerManager.jetPackParticleSystem.Stop(); // Stop the particle system to prevent new particles from being generated
-        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[playerManager.jetPackParticleSystem.particleCount]; // Create an array to store all particles in the system
-        playerManager.jetPackParticleSystem.GetParticles(particles); // Get all particles in the system and store them in the array
 
+        // Create an array to store all particles in the system
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[playerManager.jetPackParticleSystem.particleCount];
+
+        // Get all particles in the system and store them in the array
+        playerManager.jetPackParticleSystem.GetParticles(particles);
+
+        // Set the remaining lifetime of each particle to 0 to destroy them instantly
         for (int i = 0; i < particles.Length; i++)
         {
-            particles[i].remainingLifetime = 0; // Set the remaining lifetime of each particle to 0 to destroy them instantly
+            particles[i].remainingLifetime = 0; 
         }
 
-        playerManager.jetPackParticleSystem.SetParticles(particles, particles.Length); // Set the particles in the system to the modified array to destroy them
+        // Set the particles in the system to the modified array to destroy them
+        playerManager.jetPackParticleSystem.SetParticles(particles, particles.Length);
     }
 }

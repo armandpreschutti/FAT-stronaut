@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    
     public static PlayerManager playerInstance;
+
+    [Header("Components")]
     public GameManager gameManager;
     public Rigidbody2D rb;
     public BoxCollider2D boxCol;
@@ -12,7 +15,12 @@ public class PlayerManager : MonoBehaviour
     public PlayerInput playerInput;
     public ParticleSystem jetPackParticleSystem;
     public JetPackHandler jetPackHandler;
+    public HealthHandler healthHandler;
+
+    [Header("Variables")]
     public int suitID;
+    public bool isExploring;
+    public bool isDead;
 
 
     
@@ -65,7 +73,8 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCol = GetComponent<BoxCollider2D>();
         jetPackParticleSystem = GetComponentInChildren<ParticleSystem>();
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.GetInstance();
         jetPackHandler = FindObjectOfType<JetPackHandler>();
+        healthHandler = FindObjectOfType<HealthHandler>();
     }
 }

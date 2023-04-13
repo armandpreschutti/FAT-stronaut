@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class SpaceExplorationHandler : MonoBehaviour
@@ -11,10 +10,29 @@ public class SpaceExplorationHandler : MonoBehaviour
     /// <summary>
     /// On start, this function is called
     /// </summary>
-    void Start()
+    public void Start()
     {
         SetComponents();
-        SetPlayerState(startLocation.transform.position);
+        SetPlayerState(startLocation.transform.position);        
+    }
+
+    /// <summary>
+    /// When called, this function sets the space exploration state of the player
+    /// </summary>
+    /// <param name="position"></param>
+    public void SetPlayerState(Vector3 position)
+    {
+        // Set player state
+        gameManager.playerManager.isExploring = true;
+
+        // Set player position to desired position
+        gameManager.playerManager.transform.position = position;
+
+        // Activate player jet system
+        gameManager.playerManager.jetPackHandler.enabled= true;
+
+        // Activate health system
+        gameManager.playerManager.healthHandler.enabled = true;
     }
 
     /// <summary>
@@ -26,16 +44,4 @@ public class SpaceExplorationHandler : MonoBehaviour
         gameManager.SetPlayer();
     }
 
-    /// <summary>
-    /// When called, this function sets the space exploration state of the player
-    /// </summary>
-    /// <param name="position"></param>
-    public void SetPlayerState(Vector3 position)
-    {
-        // Set the player position to desired position
-        gameManager.playerManager.transform.position = position;
-
-        // Set the player jet to active
-        gameManager.playerManager.jetPackHandler.SetJetActive();
-    }
 }

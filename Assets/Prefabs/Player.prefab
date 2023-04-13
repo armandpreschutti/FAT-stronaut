@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4222160875246629043}
   - component: {fileID: -8270126006490226539}
   - component: {fileID: -7044618971156091156}
+  - component: {fileID: 4274885973197862688}
   - component: {fileID: 4301216281746241223}
   - component: {fileID: 8381471858805778544}
   - component: {fileID: 3933296097876243667}
@@ -57,6 +58,10 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   jetPackParticleSystem: {fileID: 0}
   jetPackHandler: {fileID: 0}
+  healthHandler: {fileID: 0}
+  suitID: 0
+  isExploring: 0
+  isDead: 0
 --- !u!114 &-8270126006490226539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,10 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890dc1288d9faf24e9d722e00132659f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerManager: {fileID: 0}
   moveDirection: {x: 0, y: 0}
   moveHorizontal: 0
   moveVertical: 0
+  disableMovement: 0
 --- !u!114 &-7044618971156091156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +94,23 @@ MonoBehaviour:
   rb: {fileID: 0}
   boxCol: {fileID: 0}
   speed: 2
+--- !u!114 &4274885973197862688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773363599430451509}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02866fdfb8a68274b977c707e520ccd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+  healthSlider: {fileID: 0}
+  currentHealth: 0
+  MaxHealth: 100
+  depletionRate: 50
 --- !u!212 &4301216281746241223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5008,7 +5030,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8538687013701008659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11adb9621c1abf245bcae1929a563f46, type: 3}
   m_Name: 

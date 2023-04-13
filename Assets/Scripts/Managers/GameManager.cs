@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     public bool debugMode;
 
-
     /// <summary>
     /// On awake, this function sets this game object to a game manager singleton
     /// </summary
@@ -98,6 +97,7 @@ public class GameManager : MonoBehaviour
                 // Go to the previous scene in build
                 levelManager.PreviousScene();
             }
+            
         }
 
         // Check if debug mode is not activated

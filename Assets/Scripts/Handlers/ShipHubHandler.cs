@@ -13,7 +13,26 @@ public class ShipHubHandler : MonoBehaviour
     public void Start()
     {
         SetComponents();
-        SetPlayerState(startLocation.transform.position);
+        SetPlayerState(startLocation.transform.position);        
+    }
+    
+    /// <summary>
+    /// When called, this function sets the player state variables for the ship hub
+    /// </summary>
+    /// <param name="position"></param>
+    public void SetPlayerState(Vector3 position)
+    {
+        // Set player state
+        gameManager.playerManager.isExploring = false;
+
+        // Set player position to desired position
+        gameManager.playerManager.transform.position = position;
+
+        // Deactivate player jet system
+        gameManager.playerManager.jetPackHandler.enabled = false;
+
+        // Deactivate health system
+        gameManager.playerManager.healthHandler.enabled = false;
     }
 
     /// <summary>
@@ -23,15 +42,5 @@ public class ShipHubHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         gameManager.SetPlayer();
-    }
-    
-    /// <summary>
-    /// When called, this function sets the player state variables for the ship hub
-    /// </summary>
-    /// <param name="position"></param>
-    public void SetPlayerState(Vector3 position)
-    {
-        gameManager.playerManager.transform.position = position;
-        gameManager.playerManager.jetPackHandler.SetJetInactive();
     }
 }

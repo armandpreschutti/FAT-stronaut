@@ -89,6 +89,11 @@ public class HealthHandler : MonoBehaviour
         healthSlider.value = currentHealth;
     }
 
+    public void ChangeHealth(float health)
+    {
+        currentHealth += health;
+    }
+
     /// <summary>
     /// When called, this function sets all components needed
     /// </summary>

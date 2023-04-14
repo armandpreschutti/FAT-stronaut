@@ -93,7 +93,8 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   boxCol: {fileID: 0}
-  speed: 2
+  speed: 1.5
+  maxSpeed: 3
 --- !u!114 &4274885973197862688
 MonoBehaviour:
   m_ObjectHideFlags: 0

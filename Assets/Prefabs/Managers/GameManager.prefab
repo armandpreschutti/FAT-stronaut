@@ -61,4 +61,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   playerManager: {fileID: 0}
-  debugMode: 1
+  debugMode: 0

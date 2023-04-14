@@ -10,6 +10,7 @@ public class LocomotionHandler : MonoBehaviour
     public BoxCollider2D boxCol;
 
     public float speed;
+    public float maxSpeed;
 
     /// <summary>
     /// On start, this function is called
@@ -83,7 +84,7 @@ public class LocomotionHandler : MonoBehaviour
         velocity += moveDirection * speed * Time.fixedDeltaTime;
 
         // Set the stored velocity variable to stop when top speed is reached
-        velocity = Vector2.ClampMagnitude(velocity, speed);
+        velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
 
         // Set the rigidbody velocity to the stored velocity variable
         rb.velocity = velocity;

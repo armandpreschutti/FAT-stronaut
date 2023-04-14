@@ -6,17 +6,50 @@ using UnityEngine.UIElements;
 
 public class ObjectEmissionHandler : MonoBehaviour
 {
-    public float spawnArea;
+    public GameObject prefabToSpawn;
+    public Collider2D spawnArea;
+    public int spawnCount;
 
-    public GameObject objectToSpwan;
-
-    public float objectSpeed;
-
-    
-    public void Start()
+    /// <summary>
+    /// On start, this function is called
+    /// </summary>
+    void Start()
     {
-        spawnArea = Random.Range(0f, 10f);
-        GameObject spawnObject = Instantiate(objectToSpwan, new Vector3(transform.position.x, Random.Range(1f, 10f), transform.position.z) , transform.rotation);
+        StartSpawn();
     }
 
+    /// <summary>
+    /// When called, this function executes a spawn prefab function repeatedly, with number 
+    /// of repetitions being equal to value of the spawn count variable
+    /// </summary>
+    public void StartSpawn()
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            SpawnPrefab();
+        }
+    }
+
+    /// <summary>
+    /// When called, this function spawns a prefab at a random location within collider bounds
+    /// </summary>
+    void SpawnPrefab()
+    {
+        // Create random vector 2 position within collider
+        Vector2 randomPosition = Random.insideUnitCircle * spawnArea.bounds.extents * transform.localScale.x;
+
+        // Set a spawn position to random position variable
+        Vector3 spawnPosition = transform.position + new Vector3(randomPosition.x, randomPosition.y, 0f);
+
+        // Create an instance of prefab at spawn position
+        GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// When called, this function sets all components needed
+    /// </summary>
+    public void SetComponents()
+    {
+        spawnArea = GetComponent<Collider2D>();
+    }
 }

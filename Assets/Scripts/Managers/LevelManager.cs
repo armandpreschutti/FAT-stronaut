@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public GameManager gameManager;
-
+    public float version;
+    string myString = $"The answer is";
     const int splashScreen = 0;
     const int titleMenu = 1;
     const int shipHub = 2;
@@ -32,22 +33,22 @@ public class LevelManager : MonoBehaviour
         {
             // Switch to Splash Screen scene
             case splashScreen:
-                SceneManager.LoadScene("SplashScreen_0.3");
+                SceneManager.LoadScene("SplashScreen_" + version.ToString());
                 break;
 
             // Switch to Title Menu scene
             case titleMenu:
-                SceneManager.LoadScene("TitleMenu_0.3");
+                SceneManager.LoadScene("TitleMenu_" + version.ToString());
                 break;
 
             // Swtich to Ship Hub scene
             case shipHub:
-                SceneManager.LoadScene("ShipHub_0.3");
+                SceneManager.LoadScene("ShipHub_" + version.ToString());
                 break;
 
             // Switch to Space Exploration scene
             case spaceExploration:
-                SceneManager.LoadScene("SpaceExploration_0.3");
+                SceneManager.LoadScene("SpaceExploration_" + version.ToString());
                 break;
 
             // Do nothing if parameter is out of scope

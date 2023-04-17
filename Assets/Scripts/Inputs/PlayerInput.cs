@@ -1,15 +1,38 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
+    public PlayerControls playerControls;
+    private InputAction move;
+    private InputAction fire;
     public Vector2 moveDirection;
     public float moveHorizontal;
     public float moveVertical;
     public bool disableMovement;
 
+    private void Awake()
+    {
+        playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        move = playerControls.Player.Move;
+        move.Enable();
+
+        fire = playerControls.Player.Fire;
+        fire.Enable();
+        fire.performed += Fire;
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        fire.Disable();
+    }
 
     /// <summary>
     /// Once every frame, this function is called
@@ -40,14 +63,14 @@ public class PlayerInput : MonoBehaviour
     /// </summary>
     public void EnableAxisInput()
     {
-        // Set the horizontal axis input variable
+/*        // Set the horizontal axis input variable
         moveHorizontal = Input.GetAxis("Horizontal");
 
         // Set the vertical axis input variable
-        moveVertical = Input.GetAxis("Vertical");
-
+        moveVertical = Input.GetAxis("Vertical");*/
+ 
         // Set the movement direction input vector
-        moveDirection = new Vector2(moveHorizontal, moveVertical).normalized;
+        moveDirection = move.ReadValue<Vector2>();
     }
 
     /// <summary>
@@ -57,5 +80,8 @@ public class PlayerInput : MonoBehaviour
     {
         moveDirection= Vector2.zero;
     }
-
+    private void Fire(InputAction.CallbackContext context)
+    {
+        Debug.Log("Fire button pressed");
+    }
 }

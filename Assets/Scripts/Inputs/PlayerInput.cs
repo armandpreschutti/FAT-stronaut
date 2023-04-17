@@ -82,6 +82,6 @@ public class PlayerInput : MonoBehaviour
     }
     private void Fire(InputAction.CallbackContext context)
     {
-        Debug.Log("Fire button pressed");
+        
     }
 }

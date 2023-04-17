@@ -7,21 +7,27 @@ public class ObjectHandler : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public Collider2D boxcol;
+    public Collider2D col;
+    public PlayerManager target;
     public float speed;
     public float healthValue;
     public Vector2 direction;
-    public float ricochetForce = 10f;
-    public float ricochetDelay = 0.5f;
+
 
     /// <summary>
     /// On start, this function is called
     /// </summary>
-    private void Start()
+    private void Awake()
     {
-        SetComponentes();
+        SetComponents();
+        
+    }
+    public void Start()
+    {
         SetMovementDirection();
     }
+
+
 
     /// <summary>
     /// This function is called whenever a collider enters the trigger area of collider
@@ -46,7 +52,7 @@ public class ObjectHandler : MonoBehaviour
     public void SetMovementDirection()
     {
         // Set direction to a random direction
-        direction = Random.insideUnitCircle.normalized;
+        direction = new Vector2(target.gameObject.transform.position.x, target.gameObject.transform.position.y)- new Vector2(this.transform.position.x, this.transform.position.y);//Random.insideUnitCircle.normalized;
 
         // Normalize direction
         direction.Normalize();
@@ -58,10 +64,11 @@ public class ObjectHandler : MonoBehaviour
     /// <summary>
     /// When called, this function sets all components needed
     /// </summary>
-    public void SetComponentes()
+    public void SetComponents()
     {
         rb = GetComponent<Rigidbody2D>();
-        boxcol = GetComponent<Collider2D>();
+        col = GetComponent<Collider2D>();
+        target = PlayerManager.GetInstance();
     }
 
 }

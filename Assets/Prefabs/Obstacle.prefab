@@ -154,9 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1399149370776155943}
-  boxcol: {fileID: 0}
+  col: {fileID: 1253314900552462746}
+  target: {fileID: 0}
   speed: 2
   healthValue: -20
-  direction: {x: 0, y: 0}
-  ricochetForce: 10
-  ricochetDelay: 0.5
+  direction: {x: 1, y: 1}

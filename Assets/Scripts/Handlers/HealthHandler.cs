@@ -46,7 +46,7 @@ public class HealthHandler : MonoBehaviour
         if(healthSlider == null)
         {
             // Set health slider to scene object
-            healthSlider = GameObject.Find("HealthBarFill").GetComponent<Slider>();
+            healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
         else
         {

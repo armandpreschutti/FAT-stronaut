@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipHubHandler : MonoBehaviour
 {
     public GameManager gameManager;
     public Transform startLocation;
-
+    public Text highScoreText;
     /// <summary>
     /// On start, this function is called
     /// </summary>
@@ -42,5 +43,8 @@ public class ShipHubHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         gameManager.SetPlayer();
+        gameManager.GetComponent<HighScoreHandler>().enabled = false;
+        highScoreText = GameObject.Find("HighScore").GetComponent<Text>();
+        highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 }

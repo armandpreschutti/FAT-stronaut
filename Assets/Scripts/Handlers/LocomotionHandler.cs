@@ -104,7 +104,7 @@ public class LocomotionHandler : MonoBehaviour
         velocity = moveDirection * speed;
 
         // Set the rigidbody velocity to the stored velocity variable
-        rb.velocity = velocity;
+        rb.velocity = velocity ;
     }
 
     /// <summary>

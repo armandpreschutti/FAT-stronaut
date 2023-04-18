@@ -12,7 +12,7 @@ public class ObjectHandler : MonoBehaviour
     public float speed;
     public float healthValue;
     public Vector2 direction;
-
+    public float lifeTime;
 
     /// <summary>
     /// On start, this function is called
@@ -20,6 +20,7 @@ public class ObjectHandler : MonoBehaviour
     private void Awake()
     {
         SetComponents();
+        Invoke("DestroySelf", lifeTime);
         
     }
     public void Start()
@@ -69,6 +70,10 @@ public class ObjectHandler : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         target = PlayerManager.GetInstance();
+    }
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
     }
 
 }

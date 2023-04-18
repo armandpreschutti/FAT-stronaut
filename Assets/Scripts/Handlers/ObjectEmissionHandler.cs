@@ -12,16 +12,15 @@ public class ObjectEmissionHandler : MonoBehaviour
     public int spawnCount;
     public PlayerManager playerManager;
     private bool isLooping = false;
-    public float spawnTimeInterval;
-    public float decreaseIntervalTime;
-
+    public float spawnTimeRate;
+    public float spawnRateMultiplier;
+    public float spawnRateThreshold;
     /// <summary>
     /// On start, this function is called
     /// </summary>
     void Start()
     {
         SetComponents();
-        //StartSpawn();
         StartLooping();
     }
 
@@ -50,12 +49,13 @@ public class ObjectEmissionHandler : MonoBehaviour
         // Create random vector 2 position within collider
         //Vector2 randomPosition = Random.insideUnitCircle * spawnArea.bounds.extents * transform.localScale.x;
 
-        float angle = Random.Range(0f, Mathf.PI * 2f);
+        // Create random vector 2 position within top half of collider
+        float angle = Random.Range(0f, Mathf.PI *2);
 
         Vector2 randomPosition = (Vector2)transform.position + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * spawnArea.radius;
 
         // Set a spawn position to random position variable
-        Vector3 spawnPosition = /*transform.position +*/ new Vector3(randomPosition.x, randomPosition.y, 0f);
+        Vector3 spawnPosition = new Vector3(randomPosition.x, randomPosition.y, 0f);
 
         // Create an instance of prefab at spawn position
         GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
@@ -76,8 +76,15 @@ public class ObjectEmissionHandler : MonoBehaviour
         while (isLooping)
         {
             SpawnPrefab();
-            spawnTimeInterval = spawnTimeInterval * decreaseIntervalTime;
-            yield return new WaitForSeconds(spawnTimeInterval);
+            if(spawnTimeRate >= spawnRateThreshold)
+            {
+                spawnTimeRate = spawnTimeRate * spawnRateMultiplier;
+            }
+            else
+            {
+                yield return new WaitForSeconds(spawnTimeRate);
+            }
+            yield return new WaitForSeconds(spawnTimeRate);
         }
     }
 

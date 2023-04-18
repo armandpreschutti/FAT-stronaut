@@ -13,7 +13,8 @@ public class SpaceExplorationHandler : MonoBehaviour
     public void Start()
     {
         SetComponents();
-        SetPlayerState(startLocation.transform.position);        
+        SetPlayerState(startLocation.transform.position);
+        StartTrackingScore();
     }
 
     /// <summary>
@@ -42,6 +43,11 @@ public class SpaceExplorationHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         gameManager.SetPlayer();
+
+    }
+    public void StartTrackingScore()
+    {
+        gameManager.GetComponent<HighScoreHandler>().enabled= true;
     }
 
 }

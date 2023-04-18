@@ -15,23 +15,17 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        playerControls = new PlayerControls();
+        SetComponents();
     }
 
     private void OnEnable()
     {
-        move = playerControls.Player.Move;
-        move.Enable();
-
-        fire = playerControls.Player.Fire;
-        fire.Enable();
-        fire.performed += Fire;
+        ActivateInput();
     }
 
     private void OnDisable()
     {
-        move.Disable();
-        fire.Disable();
+        DeactivateInput();
     }
 
     /// <summary>
@@ -62,13 +56,7 @@ public class PlayerInput : MonoBehaviour
     /// When called, this function gets the player axis input and sets them to a correlating variable
     /// </summary>
     public void EnableAxisInput()
-    {
-/*        // Set the horizontal axis input variable
-        moveHorizontal = Input.GetAxis("Horizontal");
-
-        // Set the vertical axis input variable
-        moveVertical = Input.GetAxis("Vertical");*/
- 
+    { 
         // Set the movement direction input vector
         moveDirection = move.ReadValue<Vector2>();
     }
@@ -80,8 +68,31 @@ public class PlayerInput : MonoBehaviour
     {
         moveDirection= Vector2.zero;
     }
+
+    public void ActivateInput()
+    {
+        move = playerControls.Player.Move;
+        move.Enable();
+
+        fire = playerControls.Player.Fire;
+        fire.Enable();
+        fire.performed += Fire;
+    }
+
+    public void DeactivateInput()
+    {
+        move.Disable();
+        fire.Disable();
+    }
+
+    public void SetComponents()
+    {
+        playerControls = new PlayerControls();
+    }
+
     private void Fire(InputAction.CallbackContext context)
     {
         
     }
+    
 }

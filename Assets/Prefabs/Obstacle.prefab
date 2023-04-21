@@ -160,3 +160,4 @@ MonoBehaviour:
   healthValue: -20
   direction: {x: 1, y: 1}
   lifeTime: 20
+  playerIncreaseRate: 1

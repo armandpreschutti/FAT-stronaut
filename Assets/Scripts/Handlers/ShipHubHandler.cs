@@ -34,6 +34,8 @@ public class ShipHubHandler : MonoBehaviour
 
         // Deactivate health system
         gameManager.playerManager.healthHandler.enabled = false;
+
+        gameManager.playerManager.ResetSize();
     }
 
     /// <summary>
@@ -46,5 +48,6 @@ public class ShipHubHandler : MonoBehaviour
         gameManager.GetComponent<HighScoreHandler>().enabled = false;
         highScoreText = GameObject.Find("HighScore").GetComponent<Text>();
         highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        
     }
 }

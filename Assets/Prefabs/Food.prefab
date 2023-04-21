@@ -4983,3 +4983,4 @@ MonoBehaviour:
   healthValue: 20
   direction: {x: 0, y: 0}
   lifeTime: 20
+  playerIncreaseRate: 1.1

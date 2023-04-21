@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     public bool isDead;
 
 
+
     
 
     /// <summary>
@@ -77,4 +78,14 @@ public class PlayerManager : MonoBehaviour
         jetPackHandler = FindObjectOfType<JetPackHandler>();
         healthHandler = FindObjectOfType<HealthHandler>();
     }
+    public void IncreaseSize(float rate)
+    {
+        transform.localScale *= rate;
+    }
+
+    public void ResetSize()
+    {
+        transform.localScale = Vector3.one;
+    }
+
 }

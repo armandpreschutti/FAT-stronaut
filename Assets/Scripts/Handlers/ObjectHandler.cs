@@ -13,6 +13,7 @@ public class ObjectHandler : MonoBehaviour
     public float healthValue;
     public Vector2 direction;
     public float lifeTime;
+    public float playerIncreaseRate;
 
     /// <summary>
     /// On start, this function is called
@@ -39,8 +40,13 @@ public class ObjectHandler : MonoBehaviour
         // Check if the collider is player
         if (collision.gameObject.tag == "Player")
         {
+
             // Apply health or damage to player
             collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
+
+            // Increase the size of the player
+            collision.gameObject.GetComponent<PlayerManager>().IncreaseSize(playerIncreaseRate);
+
 
             // Destroy this game object
             Destroy(this.gameObject);

@@ -8,9 +8,12 @@ public class LocomotionHandler : MonoBehaviour
     public PlayerManager playerManager;
     public Rigidbody2D rb;
     public BoxCollider2D boxCol;
+    public SpriteRenderer spriteRenderer;
 
     public float speed;
     public float maxSpeed;
+    public Vector2 lastVelocity = Vector2.zero;
+
 
     /// <summary>
     /// On start, this function is called
@@ -57,17 +60,35 @@ public class LocomotionHandler : MonoBehaviour
     /// <param name="velocity">the velocity of the rigidbody</param>
     public void SetPlayerFacing(Vector2 velocity)
     {
-        // Check if the current x value of the rigidbody velocity is less than zero
-        if (velocity.x < 0)
+        /*  // Check if the current x value of the rigidbody velocity is less than zero
+          if (velocity.x < 0)
+          {
+              // Set the x value of the scale to -1 to face left
+              transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+          }
+          else
+          {
+              // Set the x value of the scale to 1 to face right
+              transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+          }*/
+        
+
+        // Check if the character's velocity has changed
+        if (velocity != lastVelocity)
         {
-            // Set the x value of the scale to -1 to face left
-            transform.localScale = new Vector3(-1, 1, 1);
+            // Update the character's direction
+            if (velocity.x > 0f)
+            {
+                spriteRenderer.flipX = false; // face right
+            }
+            else if (velocity.x < 0f)
+            {
+                spriteRenderer.flipX = true; // face left
+            }
         }
-        else
-        {
-            // Set the x value of the scale to 1 to face right
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+
+        // Store the character's current velocity for the next update
+        lastVelocity = velocity;
     }
 
     /// <summary>
@@ -115,5 +136,6 @@ public class LocomotionHandler : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         rb = playerManager.GetComponent<Rigidbody2D>();
         boxCol = playerManager.GetComponent<BoxCollider2D>();
+        spriteRenderer = playerManager.GetComponent<SpriteRenderer>();
     }
 }

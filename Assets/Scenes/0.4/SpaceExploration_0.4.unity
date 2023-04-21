@@ -1565,6 +1565,10 @@ PrefabInstance:
       propertyPath: isExploring
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4222160875246629043, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
+      propertyPath: scaleMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4419256147302431474, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: m_RootOrder
       value: 4

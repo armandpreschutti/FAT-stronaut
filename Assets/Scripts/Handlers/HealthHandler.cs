@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class HealthHandler : MonoBehaviour
 {
     public PlayerManager playerManager;
-    public Slider healthSlider;
+    public UIManager uiManager;
     public float currentHealth;
     public float MaxHealth;
     public float depletionRate;
@@ -42,16 +42,7 @@ public class HealthHandler : MonoBehaviour
     /// </summary>
     public void ResetHealth()    
     {
-        // Check if health slider is empty
-        if(healthSlider == null)
-        {
-            // Set health slider to scene object
-            healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
-        }
-        else
-        {
-            return;
-        }
+        uiManager.ActivateHealthBar(true);
         
         // Set death state to false
         playerManager.isDead =false;
@@ -68,7 +59,7 @@ public class HealthHandler : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth); 
         
         // Set health bar value
-        SetHealthBar();
+        uiManager.SetHealthBar(currentHealth);
 
         // Check if current health is 0
         if (currentHealth == 0f)
@@ -81,13 +72,7 @@ public class HealthHandler : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// When called, this function sets health slider value to current health
-    /// </summary>
-    public void SetHealthBar()
-    {
-        healthSlider.value = currentHealth;
-    }
+    
 
     public void ChangeHealth(float health)
     {
@@ -100,6 +85,7 @@ public class HealthHandler : MonoBehaviour
     public void SetComponents()
     {
         playerManager = GetComponent<PlayerManager>();
+        uiManager = UIManager.GetInstance();
     }
 
     public void OnDisable()
@@ -107,5 +93,7 @@ public class HealthHandler : MonoBehaviour
         playerManager.isDead = true;
 
         currentHealth = 0;
+
+        uiManager.ActivateHealthBar(false);
     }
 }

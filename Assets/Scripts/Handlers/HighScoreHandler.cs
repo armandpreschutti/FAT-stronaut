@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class HighScoreHandler : MonoBehaviour
 {
+    public GameManager gameManager;
+    public UIManager uiManager;
     public int highScore;
-    public Text highScoreText;
     private Coroutine scoreCoroutine;
     public int scoreMultiplier;
 
@@ -27,7 +28,7 @@ public class HighScoreHandler : MonoBehaviour
         if (this.enabled)
         {
             highScore = highScore + multiplier;
-            highScoreText.text = highScore.ToString();
+            uiManager.UpdateHighScoreText(highScore);
         }
 
     }
@@ -51,6 +52,7 @@ public class HighScoreHandler : MonoBehaviour
     }
     public void ResetHighScore()
     {
+        uiManager.UpdateHighScoreText(0);
         highScore= 0;
     }
     public void SaveHighScore()
@@ -64,13 +66,11 @@ public class HighScoreHandler : MonoBehaviour
             return;
         }
     }
-    public void ShowHighScore()
-    {
-        highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
-    }
+    
     public void SetComponents()
     {
-        highScoreText = GameObject.Find("HighScore").GetComponent<Text>();
+        gameManager = GameManager.GetInstance();
+        uiManager = UIManager.GetInstance();
     }
 }
 

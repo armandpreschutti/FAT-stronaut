@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 8381471858805778544}
   - component: {fileID: 3933296097876243667}
   - component: {fileID: 8634170845910571991}
-  - component: {fileID: 3721363091363909906}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -95,8 +94,10 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   boxCol: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   speed: 1.5
   maxSpeed: 2
+  lastVelocity: {x: 0, y: 0}
 --- !u!114 &4274885973197862688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,18 +244,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3721363091363909906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7773363599430451509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc6f96154e3097449dff6a35171b92f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8538687013701008659
 GameObject:
   m_ObjectHideFlags: 0

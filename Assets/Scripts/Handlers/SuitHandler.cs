@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 
 public class SuitHandler : MonoBehaviour
 {
     [Header("Components")]
     public GameManager gameManager;
+    public PlayerManager playerManager;
+    public UIManager uiManager;
     public SpriteRenderer playerRenderer;
     public Camera previewCamera;
 
@@ -17,20 +19,13 @@ public class SuitHandler : MonoBehaviour
     public Sprite[] suits;
     public int suitIndex;
 
-    [Header("Selection Buttons")]
-    public GameObject enterButton;
-    public GameObject nextSuitButton;
-    public GameObject prevSuitButton;
-    public GameObject exitButton;
-
-
-
     /// <summary>
     /// On start, this function is called
     /// </summary>
     public void Start()
     {
         SetComponents();
+        SetState();
     }
 
     /// <summary>
@@ -91,16 +86,16 @@ public class SuitHandler : MonoBehaviour
     public void EnterSuitSelection()
     {
         // Deactivate enter button
-        enterButton.SetActive(false);
+        uiManager.enterButton.SetActive(false);
 
         // Set player position to preview position
-        gameManager.playerManager.transform.position = this.transform.position;
+        playerManager.transform.position = this.transform.position;
 
         // Set selection variables
         SetSelectionVariables(true, new Vector3(this.transform.position.x, this.transform.position.y, -10), 1);
 
         // Activate selection buttons
-        SetSelectionButtons(true);
+        uiManager.SetSelectionButtons(true);
     }
 
     /// <summary>
@@ -112,19 +107,10 @@ public class SuitHandler : MonoBehaviour
         SetSelectionVariables(false, new Vector3(0, 0, -10), 2);
 
         // Deactivate selection buttons
-        SetSelectionButtons(false);
+        uiManager.SetSelectionButtons(false);
     }
 
-    /// <summary>
-    /// When called, this function sets the state of selection buttons
-    /// </summary>
-    /// <param name="buttonState">the desired state of selection buttons</param>
-    public void SetSelectionButtons(bool buttonState)
-    { 
-        prevSuitButton.SetActive(buttonState);
-        nextSuitButton.SetActive(buttonState);
-        exitButton.SetActive(buttonState);
-    }
+    
 
     /// <summary>
     /// When called, this function sets the state of selection variables
@@ -135,7 +121,7 @@ public class SuitHandler : MonoBehaviour
     public void SetSelectionVariables(bool canMove, Vector3 camPosition, int camSize)
     {
         // Set movement state of player instance
-        gameManager.playerManager.playerInput.disableMovement = canMove;
+        playerManager.playerInput.disableMovement = canMove;
 
         // Set camera position
         previewCamera.transform.position = camPosition;
@@ -150,18 +136,20 @@ public class SuitHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
+        playerManager = PlayerManager.GetInstance();
+        uiManager = UIManager.GetInstance();
         playerRenderer = PlayerManager.GetInstance().GetComponent<SpriteRenderer>();
         previewCamera = FindObjectOfType<Camera>();
-        suitIndex = gameManager.playerManager.suitID;
-        enterButton = GameObject.Find("EnterButton");
-        prevSuitButton = GameObject.Find("PreviousSuitButton");
-        nextSuitButton = GameObject.Find("NextSuitButton");
-        exitButton = GameObject.Find("ExitButton");
-        SetSelectionButtons(false);
-        enterButton.SetActive(false);
-        gameManager.playerManager.jetPackHandler.DestroyAllParticles();
+        
     }
 
+    public void SetState()
+    {
+        suitIndex = gameManager.playerManager.suitID;
+        uiManager.SetSelectionButtons(false);
+        uiManager.enterButton.SetActive(false);
+        playerManager.jetPackHandler.DestroyAllParticles();
+    }
     /// <summary>
     /// Called when object enters trigger zone
     /// </summary>
@@ -172,7 +160,7 @@ public class SuitHandler : MonoBehaviour
         if (collision.tag == "Player")
         {
             // Activate enter button
-            enterButton.SetActive(true);
+            gameManager.uiManager.enterButton.SetActive(true);
         }
 
         else
@@ -191,7 +179,7 @@ public class SuitHandler : MonoBehaviour
         if (collision.tag == "Player")
         {
             // Deactivate enter button
-            enterButton.SetActive(false);
+            gameManager.uiManager.enterButton.SetActive(false);
         }
 
         else

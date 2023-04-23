@@ -30,7 +30,7 @@ public class CameraHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// When called, this function sets the target for camera
     /// </summary>
     /// <param name="target"></param>
     public void SetCameraTarget(Transform target)

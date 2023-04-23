@@ -43,8 +43,11 @@ public class SpaceExplorationHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         gameManager.SetPlayer();
-
     }
+
+    /// <summary>
+    /// Wehn called, this function starts tracking current score
+    /// </summary>
     public void StartTrackingScore()
     {
         gameManager.GetComponent<HighScoreHandler>().enabled= true;

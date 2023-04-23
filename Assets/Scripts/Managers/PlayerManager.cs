@@ -22,10 +22,6 @@ public class PlayerManager : MonoBehaviour
     public bool isExploring;
     public bool isDead;
 
-
-
-    
-
     /// <summary>
     /// On awake, this function sets this game object to a player manager singleton
     /// </summary
@@ -78,11 +74,20 @@ public class PlayerManager : MonoBehaviour
         jetPackHandler = FindObjectOfType<JetPackHandler>();
         healthHandler = FindObjectOfType<HealthHandler>();
     }
+
+    /// <summary>
+    /// When called, this function multiplies player size by parameter
+    /// </summary>
+    /// <param name="rate">value to multiply scale</param>
     public void IncreaseSize(float rate)
     {
+        // Multiply current scale by parameter
         transform.localScale *= rate;
     }
 
+    /// <summary>
+    /// When called, this function resets the player size to original scale
+    /// </summary>
     public void ResetSize()
     {
         transform.localScale = Vector3.one;

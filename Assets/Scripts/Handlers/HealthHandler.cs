@@ -28,11 +28,26 @@ public class HealthHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// On Disable, this function will be called
+    /// </summary>
+    public void OnDisable()
+    {
+        // Set player state to dead
+        playerManager.isDead = true;
+
+        // set current health to zero
+        currentHealth = 0;
+
+        // Set health bar to inactive
+        uiManager.ActivateHealthBar(false);
+    }
+
+
+    /// <summary>
     /// This function is called once every frame
     /// </summary>
     public void Update()
     {
-
         DepleteHealth();
     }
 
@@ -50,6 +65,10 @@ public class HealthHandler : MonoBehaviour
         // Set current health to max health 
         currentHealth = MaxHealth;
     }
+
+    /// <summary>
+    /// When called, this function depletes player health
+    /// </summary>
     public void DepleteHealth()
     {
         // Reduce current health by depletion rate multiplied by time since last frame
@@ -72,10 +91,13 @@ public class HealthHandler : MonoBehaviour
         }
     }
 
-    
-
+    /// <summary>
+    /// When called, this function adds a certain value to current health
+    /// </summary>
+    /// <param name="health">amount to add to current health</param>
     public void ChangeHealth(float health)
     {
+        // add helath value to current health
         currentHealth += health;
     }
 
@@ -86,14 +108,5 @@ public class HealthHandler : MonoBehaviour
     {
         playerManager = GetComponent<PlayerManager>();
         uiManager = UIManager.GetInstance();
-    }
-
-    public void OnDisable()
-    {
-        playerManager.isDead = true;
-
-        currentHealth = 0;
-
-        uiManager.ActivateHealthBar(false);
     }
 }

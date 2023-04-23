@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject exitButton;
 
     private static UIManager uiInstance;
+
     /// <summary>
     /// On awake, this function sets this game object to a ui manager singleton
     /// </summary
@@ -47,11 +48,13 @@ public class UIManager : MonoBehaviour
         return uiInstance;
     }
 
+    /// <summary>
+    /// When called, this function shows the current high score
+    /// </summary>
     public void ShowHighScore()
     {
         ActivateHighScoreText(true);
-        highScoreText.SetActive(true);
-        highScoreText.GetComponent<Text>().text = PlayerPrefs.GetInt("HighScore").ToString();
+        SetHighScoreText(PlayerPrefs.GetInt("HighScore"));
     }
 
     /// <summary>
@@ -64,25 +67,42 @@ public class UIManager : MonoBehaviour
         nextSuitButton.SetActive(buttonState);
         exitButton.SetActive(buttonState);
     }
+
+    /// <summary>
+    /// When called, this function sets the state of high score text
+    /// </summary>
+    /// <param name="state">desired state of high score text</param>
     public void ActivateHighScoreText(bool state)
     {
         highScoreText.SetActive(state);
     }
-    public void UpdateHighScoreText(int value)
+
+    /// <summary>
+    /// When called, this function sets the value of high score text
+    /// </summary>
+    /// <param name="value">desired value of high score text</param>
+    public void SetHighScoreText(int value)
     {
         highScoreText.GetComponent<Text>().text = value.ToString();
     }
 
     /// <summary>
+    /// When called, this function sets the state of helath bar
+    /// </summary>
+    /// <param name="state"></param>
+    public void ActivateHealthBar(bool state)
+    {
+        healthSlider.SetActive(state);
+    }
+
+    /// <summary>
     /// When called, this function sets health slider value to current health
     /// </summary>
+    /// /// <param name="value">desired value of health bar</param>
     public void SetHealthBar(float health)
     {
         healthSlider.GetComponent<Slider>().value = health;
     }
 
-    public void ActivateHealthBar(bool state)
-    {
-        healthSlider.SetActive(state);
-    }
+    
 }

@@ -16,20 +16,21 @@ public class ObjectHandler : MonoBehaviour
     public float playerIncreaseRate;
 
     /// <summary>
-    /// On start, this function is called
+    /// On awake, this function is called
     /// </summary>
     private void Awake()
     {
         SetComponents();
-        Invoke("DestroySelf", lifeTime);
-        
+        Invoke("DestroySelf", lifeTime);        
     }
+
+    /// <summary>
+    /// On start, this function is called
+    /// </summary>
     public void Start()
     {
         SetMovementDirection();
     }
-
-
 
     /// <summary>
     /// This function is called whenever a collider enters the trigger area of collider
@@ -46,7 +47,6 @@ public class ObjectHandler : MonoBehaviour
 
             // Increase the size of the player
             collision.gameObject.GetComponent<PlayerManager>().IncreaseSize(playerIncreaseRate);
-
 
             // Destroy this game object
             Destroy(this.gameObject);
@@ -77,6 +77,10 @@ public class ObjectHandler : MonoBehaviour
         col = GetComponent<Collider2D>();
         target = PlayerManager.GetInstance();
     }
+
+    /// <summary>
+    /// When called, this function destroys current gameobject
+    /// </summary>
     public void DestroySelf()
     {
         Destroy(this.gameObject);

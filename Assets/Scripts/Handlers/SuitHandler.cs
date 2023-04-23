@@ -138,18 +138,20 @@ public class SuitHandler : MonoBehaviour
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
         uiManager = UIManager.GetInstance();
-        playerRenderer = PlayerManager.GetInstance().GetComponent<SpriteRenderer>();
+        playerRenderer = playerManager.GetComponent<SpriteRenderer>();
         previewCamera = FindObjectOfType<Camera>();
-        
     }
 
+    /// <summary>
+    /// When called, this function sets the state of  suit handler selection mode
+    /// </summary>
     public void SetState()
     {
-        suitIndex = gameManager.playerManager.suitID;
+        suitIndex = playerManager.suitID;
         uiManager.SetSelectionButtons(false);
         uiManager.enterButton.SetActive(false);
-        playerManager.jetPackHandler.DestroyAllParticles();
     }
+
     /// <summary>
     /// Called when object enters trigger zone
     /// </summary>

@@ -36,7 +36,11 @@ public class ShipHubHandler : MonoBehaviour
         // Deactivate health system
         playerManager.healthHandler.enabled = false;
 
+        // Reset player size
         playerManager.ResetSize();
+
+        // Destroy all curently running particles
+        playerManager.jetPackHandler.DestroyAllParticles();
     }
 
     /// <summary>

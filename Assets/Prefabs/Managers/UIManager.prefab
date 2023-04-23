@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 1886437143166631642}
   - component: {fileID: 7788226849546812170}
   - component: {fileID: 4069305147042762947}
+  - component: {fileID: 6568576691210736000}
   m_Layer: 5
   m_Name: NextSuitButton
   m_TagString: Untagged
@@ -336,19 +337,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7788226849546812170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SuitHandler, Assembly-CSharp
-        m_MethodName: PreviewNextSuit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &6568576691210736000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131118261027675942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761e73724441e6c4aba9bc079819a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suitHandler: {fileID: 0}
+  buttonType: NextSuitButton
 --- !u!1 &1399198553502420501
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,19 +495,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Select Suit
 --- !u!1 &2389485170658969456
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +520,7 @@ GameObject:
   - component: {fileID: 6449585275928187236}
   - component: {fileID: 1540260326192317390}
   - component: {fileID: 8159155250841963018}
+  - component: {fileID: 5511619790595578081}
   m_Layer: 5
   m_Name: PreviousSuitButton
   m_TagString: Untagged
@@ -625,19 +629,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540260326192317390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SuitHandler, Assembly-CSharp
-        m_MethodName: PreviewPreviousSuit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &5511619790595578081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389485170658969456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761e73724441e6c4aba9bc079819a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suitHandler: {fileID: 0}
+  buttonType: PreviousSuitButton
 --- !u!1 &2699164083133784352
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,9 +749,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4063103010780162590}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 469023287649877596}
@@ -754,8 +760,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 910, y: 490}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &6397695615685681305
 CanvasRenderer:
@@ -964,9 +970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 75
+  m_MovementRange: 50
   m_DynamicOriginRange: 100
-  m_ControlPath: <Gamepad>/leftStick
+  m_ControlPath: 
   m_Behaviour: 0
   m_UseIsolatedInputActions: 0
   m_PointerDownAction:
@@ -999,6 +1005,7 @@ GameObject:
   - component: {fileID: 2608260846812697745}
   - component: {fileID: 443039338673296390}
   - component: {fileID: 6060558902687696952}
+  - component: {fileID: 751475230481304670}
   m_Layer: 5
   m_Name: EnterButton
   m_TagString: Untagged
@@ -1109,6 +1116,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &751475230481304670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627013099515384350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761e73724441e6c4aba9bc079819a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suitHandler: {fileID: 0}
+  buttonType: EnterButton
 --- !u!1 &7836972187261754523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1142,7 @@ GameObject:
   - component: {fileID: 2872855659661644260}
   - component: {fileID: 3907374296209642794}
   - component: {fileID: 3919134461445890654}
+  - component: {fileID: 6187192453880520355}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1230,19 +1252,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3907374296209642794}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SuitHandler, Assembly-CSharp
-        m_MethodName: ExitSuitSelection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &6187192453880520355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7836972187261754523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761e73724441e6c4aba9bc079819a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suitHandler: {fileID: 0}
+  buttonType: ExitButton
 --- !u!1 &8828795016695315782
 GameObject:
   m_ObjectHideFlags: 0

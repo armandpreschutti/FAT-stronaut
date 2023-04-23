@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        SetDebugMode(debugMode);
+       // SetDebugMode(debugMode);
     }
 
     /// <summary>

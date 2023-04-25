@@ -805,7 +805,7 @@ Transform:
   m_Father: {fileID: 1130207523}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1671465231
+--- !u!1001 &1436008397
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -899,26 +899,6 @@ PrefabInstance:
     - target: {fileID: 3014042567567401288, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060558902687696952, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060558902687696952, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060558902687696952, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060558902687696952, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060558902687696952, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596bde9d30797bc49ac26e7ff83d13bf, type: 3}

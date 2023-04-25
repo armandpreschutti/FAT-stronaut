@@ -52,14 +52,6 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Once every frame, this function is called
-    /// </summary>
-    public void Update()
-    {
-       // SetDebugMode(debugMode);
-    }
-
-    /// <summary>
     /// When called, this function sets the player variable in game manager
     /// </summary>
     /// <param name="playerManager"></param>
@@ -99,7 +91,6 @@ public class GameManager : MonoBehaviour
                 // Go to the previous scene in build
                 levelManager.PreviousScene();
             }
-            
         }
 
         // Check if debug mode is not activated
@@ -108,11 +99,5 @@ public class GameManager : MonoBehaviour
             // Do nothing
             return;
         }
-
     }
-
-    
-
-
-
 }

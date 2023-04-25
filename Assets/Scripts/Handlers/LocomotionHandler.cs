@@ -60,19 +60,6 @@ public class LocomotionHandler : MonoBehaviour
     /// <param name="velocity">the velocity of the rigidbody</param>
     public void SetPlayerFacing(Vector2 velocity)
     {
-        /*  // Check if the current x value of the rigidbody velocity is less than zero
-          if (velocity.x < 0)
-          {
-              // Set the x value of the scale to -1 to face left
-              transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-          }
-          else
-          {
-              // Set the x value of the scale to 1 to face right
-              transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-          }*/
-        
-
         // Check if the character's velocity has changed
         if (velocity != lastVelocity)
         {

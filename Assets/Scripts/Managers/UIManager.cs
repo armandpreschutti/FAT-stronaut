@@ -92,7 +92,14 @@ public class UIManager : MonoBehaviour
     /// <param name="state"></param>
     public void ActivateHealthBar(bool state)
     {
-        healthSlider.SetActive(state);
+        if(healthSlider != null)
+        {
+            healthSlider.SetActive(state);
+        }
+        else
+        {
+            return;
+        }
     }
 
     /// <summary>

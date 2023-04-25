@@ -12,18 +12,11 @@ public class HealthHandler : MonoBehaviour
     public float depletionRate;
 
     /// <summary>
-    /// This function is called when script is created
-    /// </summary>
-    public void Awake()
-    {
-        SetComponents();
-    }
-
-    /// <summary>
     /// This function is called when script is enabled
     /// </summary>
     public void OnEnable()
     {
+        SetComponents();
         ResetHealth();
     }
 

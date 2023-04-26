@@ -14,6 +14,7 @@ public class ObjectHandler : MonoBehaviour
     public Vector2 direction;
     public float lifeTime;
     public float playerIncreaseRate;
+    public GameObject objectEffect;
 
     /// <summary>
     /// On awake, this function is called
@@ -39,14 +40,15 @@ public class ObjectHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the collider is player
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")   
         {
-
             // Apply health or damage to player
             collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
 
             // Increase the size of the player
             collision.gameObject.GetComponent<PlayerManager>().IncreaseSize(playerIncreaseRate);
+
+            Instantiate(objectEffect, transform.position, Quaternion.identity);
 
             // Destroy this game object
             Destroy(this.gameObject);
@@ -58,13 +60,10 @@ public class ObjectHandler : MonoBehaviour
     /// </summary>
     public void SetMovementDirection()
     {
-        // Set direction to a random direction
-        direction = new Vector2(target.gameObject.transform.position.x, target.gameObject.transform.position.y)- new Vector2(this.transform.position.x, this.transform.position.y);//Random.insideUnitCircle.normalized;
+        // Set direction of spawned object
+        direction = GetPlayerRalativeLocation();
 
-        // Normalize direction
-        direction.Normalize();
-
-        // Move rigidbody velocity toward direction with speed
+        //Move rigidbody velocity toward direction with speed
         rb.velocity = direction * speed;
     }
 
@@ -86,4 +85,31 @@ public class ObjectHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    /// <summary>
+    /// When called, this function returns a Vector 3 that aims towrd player target
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 GetPlayerRalativeLocation()
+    {
+        Vector3 direction = target.transform.position - transform.position;
+
+        if (direction.x > 9.9)
+        {
+           direction = new Vector3(1,0,0);
+        }
+        else if (direction.x < -9.9)
+        {
+            direction = new Vector3(-1, 0, 0);
+        }
+        else if(direction.y > 4.9)
+        {
+            direction = new Vector3(0, 1, 0);
+        }
+        else
+        {
+            direction = new Vector3(0, -1, 0);
+        }
+
+        return direction;
+    }
 }

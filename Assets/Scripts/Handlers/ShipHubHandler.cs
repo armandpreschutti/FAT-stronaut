@@ -55,7 +55,6 @@ public class ShipHubHandler : MonoBehaviour
         uiManager = UIManager.GetInstance();
         cameraManager = CameraManager.GetInstance();
         cameraManager.FindCamera("Camera");
-        //gameManager.SetPlayer();
         gameManager.GetComponent<HighScoreHandler>().enabled = false;
         uiManager.ShowHighScore();
 

@@ -12,8 +12,10 @@ public class SuitHandler : MonoBehaviour
     public GameManager gameManager;
     public PlayerManager playerManager;
     public UIManager uiManager;
+    public CameraManager cameraManager;
     public SpriteRenderer playerRenderer;
     public Camera previewCamera;
+    public Transform startLocation;
 
     [Space]
     public Sprite[] suits;
@@ -74,7 +76,7 @@ public class SuitHandler : MonoBehaviour
     public void SetPlayerSuit()
     {
         // Set the players suit ID to the suit index
-        gameManager.playerManager.suitID = suitIndex;
+        playerManager.suitID = suitIndex;
 
         // Set the player suit to the next suit
         playerRenderer.sprite = suits[suitIndex];
@@ -85,6 +87,7 @@ public class SuitHandler : MonoBehaviour
     /// </summary>
     public void EnterSuitSelection()
     {
+        startLocation = GameObject.Find("StartLocation").GetComponent<Transform>();
         // Deactivate enter button
         uiManager.enterButton.SetActive(false);
 
@@ -92,10 +95,10 @@ public class SuitHandler : MonoBehaviour
         playerManager.transform.position = this.transform.position;
 
         // Set selection variables
-        SetSelectionVariables(true, new Vector3(this.transform.position.x, this.transform.position.y, -10), 1);
+        SetSelectionVariables(true);
 
         // Activate selection buttons
-        uiManager.SetSelectionButtons(true);
+        StartCoroutine(ActivateSelectionButtonsDelayed());
     }
 
     /// <summary>
@@ -104,30 +107,40 @@ public class SuitHandler : MonoBehaviour
     public void ExitSuitSelection()
     {
         // Set selection variables
-        SetSelectionVariables(false, new Vector3(0, 0, -10), 2);
+        SetSelectionVariables(false);
 
         // Deactivate selection buttons
-        uiManager.SetSelectionButtons(false);
-    }
-
-    
+        uiManager.SetSelectionButtons(false);  
+    }  
 
     /// <summary>
     /// When called, this function sets the state of selection variables
     /// </summary>
-    /// <param name="canMove">movement state of player instance</param>
+    /// <param name="moveDisabled">movement state of player instance</param>
     /// <param name="camPosition">position to move camera</param>
     /// <param name="camSize">size of camera</param>
-    public void SetSelectionVariables(bool canMove, Vector3 camPosition, int camSize)
+    public void SetSelectionVariables(bool moveDisabled)
     {
         // Set movement state of player instance
-        playerManager.playerInput.disableMovement = canMove;
+        playerManager.playerInput.disableMovement = moveDisabled;
 
-        // Set camera position
-        previewCamera.transform.position = camPosition;
 
-        // Set camera size
-        previewCamera.orthographicSize = camSize;
+        if (moveDisabled)
+        {
+            // Switch to preview camera
+            cameraManager.SwitchCamera("Camera", "PreviewCamera");
+        }
+        else
+        {
+            // Switch to main camera
+            cameraManager.SwitchCamera("PreviewCamera","Camera");
+        }
+    }
+
+    IEnumerator ActivateSelectionButtonsDelayed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        uiManager.SetSelectionButtons(true);
     }
 
     /// <summary>
@@ -138,6 +151,7 @@ public class SuitHandler : MonoBehaviour
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
         uiManager = UIManager.GetInstance();
+        cameraManager = CameraManager.GetInstance();
         playerRenderer = playerManager.GetComponent<SpriteRenderer>();
         previewCamera = FindObjectOfType<Camera>();
     }

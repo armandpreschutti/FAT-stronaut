@@ -6,6 +6,7 @@ public class SpaceExplorationHandler : MonoBehaviour
 {
     public GameManager gameManager;
     public PlayerManager playerManager;
+    public CameraManager cameraManager;
     public Transform startLocation;
 
     /// <summary>
@@ -44,7 +45,10 @@ public class SpaceExplorationHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
-        gameManager.SetPlayer();
+        cameraManager = CameraManager.GetInstance();
+        cameraManager.FindCamera("Camera");
+        cameraManager.SetCameraTarget(playerManager.transform);
+        
     }
 
     /// <summary>

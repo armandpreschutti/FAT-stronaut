@@ -7,6 +7,8 @@ public class ShipHubHandler : MonoBehaviour
     public GameManager gameManager;
     public PlayerManager playerManager;
     public UIManager uiManager;
+    public CameraManager cameraManager;
+
     public Transform startLocation;
         
     /// <summary>
@@ -51,8 +53,12 @@ public class ShipHubHandler : MonoBehaviour
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
         uiManager = UIManager.GetInstance();
-        gameManager.SetPlayer();
+        cameraManager = CameraManager.GetInstance();
+        cameraManager.FindCamera("Camera");
+        //gameManager.SetPlayer();
         gameManager.GetComponent<HighScoreHandler>().enabled = false;
         uiManager.ShowHighScore();
+
+
     }
 }

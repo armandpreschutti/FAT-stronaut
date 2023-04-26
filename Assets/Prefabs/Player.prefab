@@ -95,7 +95,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   boxCol: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  speed: 1.5
+  speed: 2
   maxSpeed: 2
   lastVelocity: {x: 0, y: 0}
 --- !u!114 &4274885973197862688
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
-  healthSlider: {fileID: 0}
+  uiManager: {fileID: 0}
   currentHealth: 0
   MaxHealth: 100
   depletionRate: 2

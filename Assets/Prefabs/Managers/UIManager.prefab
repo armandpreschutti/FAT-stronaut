@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suitHandler: {fileID: 0}
+  gameManager: {fileID: 0}
   buttonType: NextSuitButton
 --- !u!1 &1399198553502420501
 GameObject:
@@ -643,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suitHandler: {fileID: 0}
+  gameManager: {fileID: 0}
   buttonType: PreviousSuitButton
 --- !u!1 &2699164083133784352
 GameObject:
@@ -1029,11 +1031,11 @@ RectTransform:
   m_Father: {fileID: 3014042567567401288}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 550, y: -200}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 300, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &2608260846812697745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1129,6 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suitHandler: {fileID: 0}
+  gameManager: {fileID: 0}
   buttonType: EnterButton
 --- !u!1 &7836972187261754523
 GameObject:
@@ -1266,6 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suitHandler: {fileID: 0}
+  gameManager: {fileID: 0}
   buttonType: ExitButton
 --- !u!1 &8828795016695315782
 GameObject:

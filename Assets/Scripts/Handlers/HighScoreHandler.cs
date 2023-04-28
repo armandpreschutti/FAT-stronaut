@@ -17,7 +17,7 @@ public class HighScoreHandler : MonoBehaviour
     public void OnEnable()
     {
         SetComponents();
-        ResetHighScore();
+        ResetScore();
         scoreCoroutine = StartCoroutine(IncreaseScoreCoroutine());
     }
 
@@ -83,7 +83,7 @@ public class HighScoreHandler : MonoBehaviour
     /// <summary>
     /// When called, this function resets high score for session
     /// </summary>
-    public void ResetHighScore()
+    public void ResetScore()
     {
         // Set high score UI to 0
         uiManager.SetHighScoreText(0);

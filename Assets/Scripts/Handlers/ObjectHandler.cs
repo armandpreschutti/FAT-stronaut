@@ -9,6 +9,7 @@ public class ObjectHandler : MonoBehaviour
     public Rigidbody2D rb;
     public Collider2D col;
     public PlayerManager target;
+    
     public float speed;
     public float healthValue;
     public Vector2 direction;
@@ -93,15 +94,15 @@ public class ObjectHandler : MonoBehaviour
     {
         Vector3 direction = target.transform.position - transform.position;
 
-        if (direction.x > 9.9)
+        if (direction.x > 14.9)
         {
            direction = new Vector3(1,0,0);
         }
-        else if (direction.x < -9.9)
+        else if (direction.x < -14.9)
         {
             direction = new Vector3(-1, 0, 0);
         }
-        else if(direction.y > 4.9)
+        else if(direction.y > 9.9)
         {
             direction = new Vector3(0, 1, 0);
         }

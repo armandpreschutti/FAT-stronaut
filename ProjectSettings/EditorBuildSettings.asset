@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0.4/SplashScreen_0.4.unity
-    guid: c6a987688f8f6ef469cff61872a810ef
+    path: Assets/Scenes/0.5/SplashScreen_0.5.unity
+    guid: 4a44274adf2c5e149ba6fce254f1f961
   - enabled: 1
-    path: Assets/Scenes/0.4/TitleMenu_0.4.unity
-    guid: 2af3592e12067ef408e4245761829262
+    path: Assets/Scenes/0.5/TitleMenu_0.5.unity
+    guid: fc70b9afb8392424e92c5e8e9400e49d
   - enabled: 1
-    path: Assets/Scenes/0.4/ShipHub_0.4.unity
-    guid: f9f8a3a8d177eec4fa13a71e87930395
+    path: Assets/Scenes/0.5/ShipHub_0.5.unity
+    guid: f56bfd0547975ca4286b15d98beb1981
   - enabled: 1
-    path: Assets/Scenes/0.4/SpaceExploration_0.4.unity
-    guid: 189227bc5f2a8724f94ec0f8b1891220
+    path: Assets/Scenes/0.5/SpaceExploration_0.5.unity
+    guid: 1a85b3bcd553889409bed15f1c504ffc
   m_configObjects: {}

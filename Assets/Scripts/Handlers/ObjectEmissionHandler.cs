@@ -17,14 +17,14 @@ public class ObjectEmissionHandler : MonoBehaviour
     public float spawnTimeRate;
     public float spawnRateMultiplier;
     public float spawnRateThreshold;
-    
+    public float startDelayTime;
     /// <summary>
     /// On start, this function is called
     /// </summary>
     void Start()
     {
         SetComponents();
-        StartLooping();
+        Invoke("StartLooping", startDelayTime);
     }
 
     public void Update()
@@ -136,4 +136,19 @@ public class ObjectEmissionHandler : MonoBehaviour
         // Return the chosen random point on the outside of the box collider
         return new Vector3(x, y, 0);
     }
+
+    /*private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Check if the object is player
+        if (collision.tag == "Object")
+        {
+            // Deactivate enter button
+            Destroy(collision);
+        }
+
+        else
+        {
+            return;
+        }
+    }*/
 }

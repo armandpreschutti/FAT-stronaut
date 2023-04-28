@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject suitHandler;
+    public GameManager gameManager;
     public string buttonType;
 
     /// <summary>
@@ -43,6 +44,11 @@ public class ButtonHandler : MonoBehaviour
             // Exit Suit Selection
             case "ExitButton":
                 suitHandler.GetComponent<SuitHandler>().ExitSuitSelection();
+                return;
+
+            // Reset High Score
+            case "ResetButton":
+                PlayerPrefs.SetInt("HighScore", 0);
                 return;
 
             // Do nothing

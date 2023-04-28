@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour
     public GameManager gameManager;
     public CinemachineBrain cinemachineBrain;
     public CinemachineVirtualCamera vCam;
-    public Transform cameraTarget;
+
 
     /// <summary>
     /// On awake, this function sets this game object to a camera manager singleton
@@ -25,11 +25,6 @@ public class CameraManager : MonoBehaviour
 
             // Don't destroy between scenes
             DontDestroyOnLoad(gameObject);
-
-            // Set needed components
-            SetComponents();
-
-            FindCamera("Camera");
         }
         else
         {
@@ -52,8 +47,11 @@ public class CameraManager : MonoBehaviour
     /// </summary>
     public void Start()
     {
+        // Set needed components
+        SetComponents();
+
         FindCamera("Camera");
-        cameraTarget = PlayerManager.GetInstance().transform;
+
     }
 
     /// <summary>
@@ -106,9 +104,9 @@ public class CameraManager : MonoBehaviour
         CinemachineVirtualCamera endCam = GameObject.Find(endCamName).GetComponent<CinemachineVirtualCamera>();
 
         // Decrease priority of start camera
-        startCam.Priority -= 1;
+        startCam.Priority = 0;
 
         // Increase priority of end camera
-        endCam.Priority += 1;
+        endCam.Priority = 10;
     }
 }

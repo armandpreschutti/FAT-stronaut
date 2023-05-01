@@ -156,7 +156,7 @@ MonoBehaviour:
   rb: {fileID: 1399149370776155943}
   col: {fileID: 1253314900552462746}
   target: {fileID: 0}
-  speed: 1.5
+  speed: 2.5
   healthValue: -20
   direction: {x: 1, y: 1}
   lifeTime: 200

@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public ParticleSystem jetPackParticleSystem;
     public JetPackHandler jetPackHandler;
     public HealthHandler healthHandler;
+    public PlayerSizeHandler playerSizeHandler;
 
     [Header("Variables")]
     public int suitID;
@@ -73,24 +74,6 @@ public class PlayerManager : MonoBehaviour
         gameManager = GameManager.GetInstance();
         jetPackHandler = FindObjectOfType<JetPackHandler>();
         healthHandler = FindObjectOfType<HealthHandler>();
-    }
-
-    /// <summary>
-    /// When called, this function multiplies player size by parameter
-    /// </summary>
-    /// <param name="rate">value to multiply scale</param>
-    public void IncreaseSize(float rate)
-    {
-        // Multiply current scale by parameter
-        transform.localScale *= rate;
-    }
-
-    /// <summary>
-    /// When called, this function resets the player size to original scale
-    /// </summary>
-    public void ResetSize()
-    {
-        transform.localScale = Vector3.one;
-    }
-
+        playerSizeHandler = GetComponent<PlayerSizeHandler>();
+    }   
 }

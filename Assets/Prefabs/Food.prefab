@@ -4979,9 +4979,9 @@ MonoBehaviour:
   rb: {fileID: 0}
   col: {fileID: 0}
   target: {fileID: 0}
-  speed: 1
+  speed: 2
   healthValue: 10
   direction: {x: 0, y: 0}
   lifeTime: 200
-  playerIncreaseRate: 1.02
+  playerIncreaseRate: 1.1
   objectEffect: {fileID: 2372946137838410910, guid: a4d9cffaf45cf3c4383c3321382bb308, type: 3}

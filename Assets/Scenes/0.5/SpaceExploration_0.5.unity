@@ -318,6 +318,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
   cameraManager: {fileID: 0}
+  uiManager: {fileID: 0}
   startLocation: {fileID: 1811948294}
 --- !u!4 &182453701
 Transform:
@@ -1472,6 +1473,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7044618971156091156, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
+      propertyPath: maxSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2090486972497775429, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: stopAction
       value: 3

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8381471858805778544}
   - component: {fileID: 3933296097876243667}
   - component: {fileID: 8634170845910571991}
+  - component: {fileID: -7704840356532000671}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -60,6 +61,7 @@ MonoBehaviour:
   jetPackParticleSystem: {fileID: 0}
   jetPackHandler: {fileID: 0}
   healthHandler: {fileID: 0}
+  playerSizeHandler: {fileID: 0}
   suitID: 0
   isExploring: 0
   isDead: 0
@@ -244,6 +246,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-7704840356532000671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773363599430451509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded7fc6015724fb498bd665d33a81127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSize: 0
+  maxSize: 2
 --- !u!1 &8538687013701008659
 GameObject:
   m_ObjectHideFlags: 0

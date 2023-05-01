@@ -47,7 +47,7 @@ public class ObjectHandler : MonoBehaviour
             collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
 
             // Increase the size of the player
-            collision.gameObject.GetComponent<PlayerManager>().IncreaseSize(playerIncreaseRate);
+            collision.gameObject.GetComponent<PlayerManager>().playerSizeHandler.IncreaseSize(playerIncreaseRate);
 
             Instantiate(objectEffect, transform.position, Quaternion.identity);
 

@@ -7,6 +7,7 @@ public class SpaceExplorationHandler : MonoBehaviour
     public GameManager gameManager;
     public PlayerManager playerManager;
     public CameraManager cameraManager;
+    public UIManager uiManager;
     public Transform startLocation;
 
     /// <summary>
@@ -46,6 +47,8 @@ public class SpaceExplorationHandler : MonoBehaviour
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
         cameraManager = CameraManager.GetInstance();
+        uiManager = UIManager.GetInstance();
+        startLocation = GameObject.Find("StartLocation").GetComponent<Transform>();
         cameraManager.FindCamera("Camera");
         cameraManager.SetCameraTarget(playerManager.transform);
         
@@ -57,6 +60,7 @@ public class SpaceExplorationHandler : MonoBehaviour
     public void StartTrackingScore()
     {
         gameManager.GetComponent<HighScoreHandler>().enabled= true;
+        uiManager.ShowHighScore();
        
     }
 

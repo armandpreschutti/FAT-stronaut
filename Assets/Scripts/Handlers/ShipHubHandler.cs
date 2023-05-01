@@ -39,7 +39,7 @@ public class ShipHubHandler : MonoBehaviour
         playerManager.healthHandler.enabled = false;
 
         // Reset player size
-        playerManager.ResetSize();
+        playerManager.GetComponent<PlayerSizeHandler>().ResetSize();
 
         // Destroy all curently running particles
         playerManager.jetPackHandler.DestroyAllParticles();

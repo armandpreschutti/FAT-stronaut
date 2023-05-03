@@ -9,7 +9,6 @@ public class ObjectHandler : MonoBehaviour
     public Rigidbody2D rb;
     public Collider2D col;
     public PlayerManager target;
-    
     public float speed;
     public float healthValue;
     public Vector2 direction;
@@ -46,9 +45,11 @@ public class ObjectHandler : MonoBehaviour
             // Apply health or damage to player
             collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
 
-            // Increase the size of the player
+            // Increase the size of player
             collision.gameObject.GetComponent<PlayerManager>().playerSizeHandler.IncreaseSize(playerIncreaseRate);
 
+
+            // Play object VFX
             Instantiate(objectEffect, transform.position, Quaternion.identity);
 
             // Destroy this game object

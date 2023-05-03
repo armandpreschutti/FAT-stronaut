@@ -97,8 +97,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   boxCol: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  speed: 2
-  maxSpeed: 2
+  speed: 3
+  maxSpeed: 3
   lastVelocity: {x: 0, y: 0}
 --- !u!114 &4274885973197862688
 MonoBehaviour:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSize: 0
-  maxSize: 2
+  maxSize: 15
 --- !u!1 &8538687013701008659
 GameObject:
   m_ObjectHideFlags: 0

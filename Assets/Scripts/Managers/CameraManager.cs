@@ -109,4 +109,6 @@ public class CameraManager : MonoBehaviour
         // Increase priority of end camera
         endCam.Priority = 10;
     }
+
+
 }

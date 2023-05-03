@@ -1473,14 +1473,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7704840356532000671, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
-      propertyPath: maxSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: -7044618971156091156, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: -7044618971156091156, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: maxSpeed
       value: 3

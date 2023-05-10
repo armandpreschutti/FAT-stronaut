@@ -48,12 +48,11 @@ public class ObjectHandler : MonoBehaviour
             // Increase the size of player
             collision.gameObject.GetComponent<PlayerManager>().playerSizeHandler.IncreaseSize(playerIncreaseRate);
 
-
             // Play object VFX
             Instantiate(objectEffect, transform.position, Quaternion.identity);
 
             // Destroy this game object
-            Destroy(this.gameObject);
+            DestroySelf();
         }
     }
 

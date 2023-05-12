@@ -62,7 +62,8 @@ public class ObjectHandler : MonoBehaviour
     public void SetMovementDirection()
     {
         // Set direction of spawned object
-        direction = GetPlayerRalativeLocation();
+        //direction = GetPlayerRalativeLocation();
+        direction = new Vector3(-1, 0, 0);
 
         //Move rigidbody velocity toward direction with speed
         rb.velocity = direction * speed;
@@ -86,7 +87,7 @@ public class ObjectHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    /// <summary>
+    /*/// <summary>
     /// When called, this function returns a Vector 3 that aims towrd player target
     /// </summary>
     /// <returns></returns>
@@ -112,5 +113,5 @@ public class ObjectHandler : MonoBehaviour
         }
 
         return direction;
-    }
+    }*/
 }

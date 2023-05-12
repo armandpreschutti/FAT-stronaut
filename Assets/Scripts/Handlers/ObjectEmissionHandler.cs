@@ -50,7 +50,11 @@ public class ObjectEmissionHandler : MonoBehaviour
     void SpawnPrefab()
     {
         // Set spawn position to random point
-        Vector3 spawnPosition = GetRandomSide();
+        //Vector3 spawnPosition = GetRandomSide();
+
+        Bounds bounds = spawnArea.bounds;
+
+        Vector3 spawnPosition = new Vector3(bounds.center.x, Random.Range(bounds.min.y, bounds.max.y), 0f);
 
         // Create an instance of prefab at spawn position
         GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
@@ -102,7 +106,7 @@ public class ObjectEmissionHandler : MonoBehaviour
     }
 
 
-    /// <summary>
+    /*/// <summary>
     /// When called, this function returns a Vector 3 of a random point along the perimeter of box collider
     /// </summary>
     /// <returns></returns>
@@ -135,7 +139,7 @@ public class ObjectEmissionHandler : MonoBehaviour
 
         // Return the chosen random point on the outside of the box collider
         return new Vector3(x, y, 0);
-    }
+    }*/
 
     /*private void OnTriggerExit2D(Collider2D collision)
     {

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject highScoreText;
     public GameObject healthSlider;
+    public GameObject shieldText;
 
     [Header("Suit Selection Buttons")]
     public GameObject enterButton;
@@ -109,6 +110,12 @@ public class UIManager : MonoBehaviour
     public void SetHealthBar(float health)
     {
         healthSlider.GetComponent<Slider>().value = health;
+    }
+
+    public void ShowShield()
+    {
+        shieldText.SetActive(true);
+        
     }
 
     

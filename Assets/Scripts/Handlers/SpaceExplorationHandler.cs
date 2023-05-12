@@ -51,6 +51,7 @@ public class SpaceExplorationHandler : MonoBehaviour
         startLocation = GameObject.Find("StartLocation").GetComponent<Transform>();
         cameraManager.FindCamera("Camera");
         cameraManager.SetCameraTarget(playerManager.transform);
+        playerManager.GetComponentInChildren<ParticleSystem>().Play();
         
     }
 

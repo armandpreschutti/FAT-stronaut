@@ -5,6 +5,7 @@ using UnityEngine;
 public class JetPackHandler : MonoBehaviour
 {
     public PlayerManager playerManager;
+    public GameManager gameManager;
 
     /// <summary>
     /// On start, this function is called
@@ -12,9 +13,10 @@ public class JetPackHandler : MonoBehaviour
     public void Awake()
     {
         playerManager = GetComponentInParent<PlayerManager>();
+
     }
 
-    /// <summary>
+   /* /// <summary>
     /// Once every .02 seconds, this function is called
     /// </summary>
     public void FixedUpdate()
@@ -28,7 +30,7 @@ public class JetPackHandler : MonoBehaviour
     public void SetJetParticleSystem()
     {
         // Check if there is any player movement input
-        if (playerManager.playerInput.moveDirection.magnitude > 0)
+        if (levelManager.currentScene == 3)
         {
             // Turn on Jet Pack
             playerManager.jetPackParticleSystem.Play();
@@ -38,7 +40,7 @@ public class JetPackHandler : MonoBehaviour
             // Turn off Jet Pack
             playerManager.jetPackParticleSystem.Stop();
         }
-    }
+    }*/
 
     /// <summary>
     /// When called, this function destroys all particles currently running in particle system

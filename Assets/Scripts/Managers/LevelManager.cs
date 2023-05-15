@@ -33,22 +33,22 @@ public class LevelManager : MonoBehaviour
         {
             // Switch to Splash Screen scene
             case splashScreen:
-                SceneManager.LoadScene("SplashScreen_" + version.ToString());
+                SceneManager.LoadScene("SplashScreen");
                 break;
 
             // Switch to Title Menu scene
             case titleMenu:
-                SceneManager.LoadScene("TitleMenu_" + version.ToString());
+                SceneManager.LoadScene("TitleMenu");
                 break;
 
             // Swtich to Ship Hub scene
             case shipHub:
-                SceneManager.LoadScene("ShipHub_" + version.ToString());
+                SceneManager.LoadScene("ShipHub");
                 break;
 
             // Switch to Space Exploration scene
             case spaceExploration:
-                SceneManager.LoadScene("SpaceExploration_" + version.ToString());
+                SceneManager.LoadScene("SpaceExploration");
                 break;
 
             // Do nothing if parameter is out of scope

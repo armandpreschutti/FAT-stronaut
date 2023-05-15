@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  version: 0.6
+  version: 1
   currentScene: 0
 --- !u!114 &1556626085722361026
 MonoBehaviour:

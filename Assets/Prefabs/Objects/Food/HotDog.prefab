@@ -4966,5 +4966,5 @@ MonoBehaviour:
   healthValue: 10
   direction: {x: 0, y: 0}
   lifeTime: 200
-  playerIncreaseRate: 1.1
+  playerIncreaseRate: 1.01
   objectEffect: {fileID: 2372946137838410910, guid: a4d9cffaf45cf3c4383c3321382bb308, type: 3}

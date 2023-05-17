@@ -58,16 +58,7 @@ public class UIManager : MonoBehaviour
         SetHighScoreText(PlayerPrefs.GetInt("HighScore"));
     }
 
-    /// <summary>
-    /// When called, this function sets the state of selection buttons
-    /// </summary>
-    /// <param name="buttonState">the desired state of selection buttons</param>
-    public void SetSelectionButtons(bool buttonState)
-    {
-        prevSuitButton.SetActive(buttonState);
-        nextSuitButton.SetActive(buttonState);
-        exitButton.SetActive(buttonState);
-    }
+    
 
     /// <summary>
     /// When called, this function sets the state of high score text

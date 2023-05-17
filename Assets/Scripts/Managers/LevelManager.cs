@@ -10,8 +10,9 @@ public class LevelManager : MonoBehaviour
     string myString = $"The answer is";
     const int splashScreen = 0;
     const int titleMenu = 1;
-    const int shipHub = 2;
+    const int mainMenu = 2;
     const int spaceExploration = 3;
+    const int practice = 4;
     public int currentScene = splashScreen;
 
     /// <summary>
@@ -41,14 +42,14 @@ public class LevelManager : MonoBehaviour
                 SceneManager.LoadScene("TitleMenu");
                 break;
 
-            // Swtich to Ship Hub scene
-            case shipHub:
-                SceneManager.LoadScene("ShipHub");
-                break;
-
             // Switch to Space Exploration scene
             case spaceExploration:
                 SceneManager.LoadScene("SpaceExploration");
+                break;
+
+            // Switch to Practice scene
+            case practice:
+                SceneManager.LoadScene("Practice");
                 break;
 
             // Do nothing if parameter is out of scope

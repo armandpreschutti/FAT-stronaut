@@ -11,11 +11,7 @@ public class SuitHandler : MonoBehaviour
     [Header("Components")]
     public GameManager gameManager;
     public PlayerManager playerManager;
-    public UIManager uiManager;
-    public CameraManager cameraManager;
-    public SpriteRenderer playerRenderer;
-    public Camera previewCamera;
-    public Transform startLocation;
+    public GameObject suitPanel;
 
     [Space]
     public Sprite[] suits;
@@ -79,69 +75,24 @@ public class SuitHandler : MonoBehaviour
         playerManager.suitID = suitIndex;
 
         // Set the player suit to the next suit
-        playerRenderer.sprite = suits[suitIndex];
+        playerManager.GetComponent<SpriteRenderer>().sprite = suits[suitIndex];
     }
 
     /// <summary>
     /// When callled, this function enables the suit selection menu
     /// </summary>
     public void EnterSuitSelection()
-    {
-        startLocation = GameObject.Find("StartLocation").GetComponent<Transform>();
-        // Deactivate enter button
-        uiManager.enterButton.SetActive(false);
-
-        // Set player position to preview position
-        playerManager.transform.position = this.transform.position;
-
-        // Set selection variables
-        SetSelectionVariables(true);
-
-        // Activate selection buttons
-        StartCoroutine(ActivateSelectionButtonsDelayed());
+    { 
+        suitPanel.SetActive(true);
     }
 
     /// <summary>
     /// When callled, this function enables the suit selection menu
     /// </summary>
     public void ExitSuitSelection()
-    {
-        // Set selection variables
-        SetSelectionVariables(false);
-
-        // Deactivate selection buttons
-        uiManager.SetSelectionButtons(false);  
+    { 
+        suitPanel?.SetActive(false);
     }  
-
-    /// <summary>
-    /// When called, this function sets the state of selection variables
-    /// </summary>
-    /// <param name="moveDisabled">movement state of player instance</param>
-    /// <param name="camPosition">position to move camera</param>
-    /// <param name="camSize">size of camera</param>
-    public void SetSelectionVariables(bool moveDisabled)
-    {
-        // Set movement state of player instance
-        playerManager.playerInput.disableMovement = moveDisabled;
-
-
-        if (moveDisabled)
-        {
-            // Switch to preview camera
-            cameraManager.SwitchCamera("Camera", "PreviewCamera");
-        }
-        else
-        {
-            // Switch to main camera
-            cameraManager.SwitchCamera("PreviewCamera","Camera");
-        }
-    }
-
-    IEnumerator ActivateSelectionButtonsDelayed()
-    {
-        yield return new WaitForSeconds(0.5f);
-        uiManager.SetSelectionButtons(true);
-    }
 
     /// <summary>
     /// When called, this function sets all components needed
@@ -150,10 +101,7 @@ public class SuitHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
-        uiManager = UIManager.GetInstance();
-        cameraManager = CameraManager.GetInstance();
-        playerRenderer = playerManager.GetComponent<SpriteRenderer>();
-        previewCamera = FindObjectOfType<Camera>();
+
     }
 
     /// <summary>
@@ -162,46 +110,6 @@ public class SuitHandler : MonoBehaviour
     public void SetState()
     {
         suitIndex = playerManager.suitID;
-        uiManager.SetSelectionButtons(false);
-        uiManager.enterButton.SetActive(false);
-    }
-
-    /// <summary>
-    /// Called when object enters trigger zone
-    /// </summary>
-    /// <param name="collision">object detected in trigger zone</param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Check if the object is player
-        if (collision.tag == "Player")
-        {
-            // Activate enter button
-            gameManager.uiManager.enterButton.SetActive(true);
-        }
-
-        else
-        {
-            return;
-        }
-    }
-
-    /// <summary>
-    /// Called when object exits trigger zone
-    /// </summary>
-    /// <param name="collision">object detected in trigger zone</param>
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        // Check if the object is player
-        if (collision.tag == "Player")
-        {
-            // Deactivate enter button
-            gameManager.uiManager.enterButton.SetActive(false);
-        }
-
-        else
-        {
-            return;
-        }
     }
 
 }

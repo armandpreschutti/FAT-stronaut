@@ -12,6 +12,7 @@ public class SuitHandler : MonoBehaviour
     public GameManager gameManager;
     public PlayerManager playerManager;
     public GameObject suitPanel;
+    public SpriteRenderer previewRenderer;
 
     [Space]
     public Sprite[] suits;
@@ -76,23 +77,12 @@ public class SuitHandler : MonoBehaviour
 
         // Set the player suit to the next suit
         playerManager.GetComponent<SpriteRenderer>().sprite = suits[suitIndex];
+
+        // Set the preview suit to the next suit
+        previewRenderer.sprite = suits[suitIndex];
     }
 
-    /// <summary>
-    /// When callled, this function enables the suit selection menu
-    /// </summary>
-    public void EnterSuitSelection()
-    { 
-        suitPanel.SetActive(true);
-    }
-
-    /// <summary>
-    /// When callled, this function enables the suit selection menu
-    /// </summary>
-    public void ExitSuitSelection()
-    { 
-        suitPanel?.SetActive(false);
-    }  
+    
 
     /// <summary>
     /// When called, this function sets all components needed
@@ -101,7 +91,7 @@ public class SuitHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
-
+        previewRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -110,6 +100,7 @@ public class SuitHandler : MonoBehaviour
     public void SetState()
     {
         suitIndex = playerManager.suitID;
+        SetPlayerSuit();
     }
 
 }

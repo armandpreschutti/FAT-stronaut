@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainMenuHandler : MonoBehaviour
 {
     public GameManager gameManager;
+    public PlayerManager playerManager;
     public GameObject settingsMenu;
     /// <summary>
     /// On start, this function is called
@@ -12,6 +14,7 @@ public class MainMenuHandler : MonoBehaviour
     public void Start()
     {
         SetComponents();
+        SetPlayerState();   
     }
 
     /// <summary>
@@ -47,5 +50,17 @@ public class MainMenuHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
+        playerManager = PlayerManager.GetInstance();
+    }
+
+    public void SetPlayerState()
+    {
+        playerManager.GetComponent<SpriteRenderer>().enabled = false;
+        playerManager.GetComponent<LocomotionHandler>().enabled = false;
+        playerManager.GetComponent<HealthHandler>().enabled = false;
+        playerManager.GetComponent<PlayerInput>().enabled = false;
+        playerManager.GetComponentInChildren<JetPackHandler>().DestroyAllParticles();
+        playerManager.transform.position= Vector3.zero;
+        playerManager.rb.velocity= Vector3.zero;
     }
 }

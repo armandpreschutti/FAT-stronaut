@@ -37,6 +37,15 @@ public class SpaceExplorationHandler : MonoBehaviour
 
         // Activate health system
         playerManager.healthHandler.enabled = true;
+
+        // Activate Sprite Renderer
+        playerManager.GetComponent<SpriteRenderer>().enabled = true;
+
+        // Activate player input
+        playerManager.playerInput.enabled = true;
+
+        // Activate player locomotion
+        playerManager.locomotionHandler.enabled = true;
     }
 
     /// <summary>

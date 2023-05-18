@@ -26,10 +26,6 @@ public class ButtonHandler : MonoBehaviour
         // check button type
         switch(buttonType)
         {
-            // Enter suit selection
-            case "EnterButton":
-                suitHandler.GetComponent<SuitHandler>().EnterSuitSelection();
-                return;
 
             // Preview the previous suit
             case "PreviousSuitButton":
@@ -39,11 +35,6 @@ public class ButtonHandler : MonoBehaviour
             // Preview the next suit
             case "NextSuitButton":
                 suitHandler.GetComponent<SuitHandler>().PreviewNextSuit();
-                return;
-
-            // Exit Suit Selection
-            case "ExitButton":
-                suitHandler.GetComponent<SuitHandler>().ExitSuitSelection();
                 return;
 
             // Reset High Score

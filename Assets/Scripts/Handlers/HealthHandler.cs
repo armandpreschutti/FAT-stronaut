@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class HealthHandler : MonoBehaviour
 {
@@ -80,7 +80,7 @@ public class HealthHandler : MonoBehaviour
             playerManager.isDead = true;
 
             // Return player to ship hub
-            playerManager.gameManager.levelManager.SwitchScene(2);
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

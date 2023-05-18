@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void SetComponents()
     {
         levelManager = GetComponent<LevelManager>();
+        SetPlayer();
         uiManager = UIManager.GetInstance();
     }
 

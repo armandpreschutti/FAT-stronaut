@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private static GameManager gameInstance;
     public LevelManager levelManager;
     public PlayerManager playerManager;
-    public UIManager uiManager;
+    //public UIManager uiManager;
 
     public bool debugMode;
 
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         levelManager = GetComponent<LevelManager>();
         SetPlayer();
-        uiManager = UIManager.GetInstance();
+        //uiManager = UIManager.GetInstance();
     }
 
     /// <summary>

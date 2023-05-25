@@ -4963,8 +4963,10 @@ MonoBehaviour:
   col: {fileID: 0}
   target: {fileID: 0}
   speed: 4
-  healthValue: 10
+  healthValue: 15
   direction: {x: 0, y: 0}
   lifeTime: 200
-  playerIncreaseRate: 1.01
+  playerIncreaseRate: 1.03
   objectEffect: {fileID: 2372946137838410910, guid: a4d9cffaf45cf3c4383c3321382bb308, type: 3}
+  isFood: 1
+  objectSFX: {fileID: 8300000, guid: 6fec3a9a3c368964d8ce3ac73e400aff, type: 3}

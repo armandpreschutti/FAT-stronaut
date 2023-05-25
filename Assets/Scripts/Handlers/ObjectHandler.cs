@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +16,8 @@ public class ObjectHandler : MonoBehaviour
     public float lifeTime;
     public float playerIncreaseRate;
     public GameObject objectEffect;
+    public bool isFood;
+    public AudioClip objectSFX;
 
     /// <summary>
     /// On awake, this function is called
@@ -51,8 +54,24 @@ public class ObjectHandler : MonoBehaviour
             // Play object VFX
             Instantiate(objectEffect, transform.position, Quaternion.identity);
 
+            if (isFood)
+            {
+                collision.transform.DOPunchScale(new Vector3(.25f,.25f,.25f), .5f);
+                
+
+            }
+            else
+            {
+                collision.transform.DOShakePosition(.5f, new Vector3(0,.15f,.15f), 10, 0);
+
+            }
+
+            // Play object SFX
+            collision.GetComponent<SFXHandler>().PlaySFX(objectSFX);
+
             // Destroy this game object
             DestroySelf();
+
         }
     }
 
@@ -61,8 +80,7 @@ public class ObjectHandler : MonoBehaviour
     /// </summary>
     public void SetMovementDirection()
     {
-        // Set direction of spawned object
-        //direction = GetPlayerRalativeLocation();
+        // Set direction of spawned objectS
         direction = new Vector3(-1, 0, 0);
 
         //Move rigidbody velocity toward direction with speed
@@ -87,31 +105,5 @@ public class ObjectHandler : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    /*/// <summary>
-    /// When called, this function returns a Vector 3 that aims towrd player target
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 GetPlayerRalativeLocation()
-    {
-        Vector3 direction = target.transform.position - transform.position;
 
-        if (direction.x > 14.9)
-        {
-           direction = new Vector3(1,0,0);
-        }
-        else if (direction.x < -14.9)
-        {
-            direction = new Vector3(-1, 0, 0);
-        }
-        else if(direction.y > 9.9)
-        {
-            direction = new Vector3(0, 1, 0);
-        }
-        else
-        {
-            direction = new Vector3(0, -1, 0);
-        }
-
-        return direction;
-    }*/
 }

@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuHandler : MonoBehaviour
 {
     public GameManager gameManager;
     public PlayerManager playerManager;
     public GameObject settingsMenu;
+    public Text highScoreText;
+
+
     /// <summary>
     /// On start, this function is called
     /// </summary>
@@ -51,6 +55,8 @@ public class MainMenuHandler : MonoBehaviour
     {
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
+        gameManager.GetComponent<HighScoreHandler>().enabled = false;
+        DisplayHighScore();
     }
 
     public void SetPlayerState()
@@ -60,7 +66,12 @@ public class MainMenuHandler : MonoBehaviour
         playerManager.GetComponent<HealthHandler>().enabled = false;
         playerManager.GetComponent<PlayerInput>().enabled = false;
         playerManager.GetComponentInChildren<JetPackHandler>().DestroyAllParticles();
-        playerManager.transform.position= Vector3.zero;
-        playerManager.rb.velocity= Vector3.zero;
+        playerManager.transform.position = Vector3.zero;
+        playerManager.rb.velocity = Vector3.zero;
+    }
+
+    public void DisplayHighScore()
+    {
+        highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 }

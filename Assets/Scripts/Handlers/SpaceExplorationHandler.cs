@@ -7,8 +7,6 @@ public class SpaceExplorationHandler : MonoBehaviour
     public GameManager gameManager;
     public PlayerManager playerManager;
     public CameraManager cameraManager;
-    public UIManager uiManager;
-    public Transform startLocation;
 
     /// <summary>
     /// On start, this function is called
@@ -16,29 +14,31 @@ public class SpaceExplorationHandler : MonoBehaviour
     public void Start()
     {
         SetComponents();
-        SetPlayerState(startLocation.transform.position);
-        StartTrackingScore();
+        SetPlayerState();
     }
 
     /// <summary>
     /// When called, this function sets the space exploration state of the player
     /// </summary>
     /// <param name="position"></param>
-    public void SetPlayerState(Vector3 position)
+    public void SetPlayerState()
     {
         // Set player state
         playerManager.isExploring = true;
 
         // Set player position to desired position
-        playerManager.transform.position = position;
+        playerManager.transform.position = Vector3.zero;
 
-        // Activate player jet system
-        playerManager.jetPackHandler.enabled= true;
+        // Reset player scale
+        playerManager.transform.localScale = Vector3.one;
+
+        // Play jet particles 
+        playerManager.GetComponentInChildren<ParticleSystem>().Play();
 
         // Activate health system
         playerManager.healthHandler.enabled = true;
 
-        // Activate Sprite Renderer
+        // Activate sprite renderer
         playerManager.GetComponent<SpriteRenderer>().enabled = true;
 
         // Activate player input
@@ -56,22 +56,12 @@ public class SpaceExplorationHandler : MonoBehaviour
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
         cameraManager = CameraManager.GetInstance();
-        uiManager = UIManager.GetInstance();
-        startLocation = GameObject.Find("StartLocation").GetComponent<Transform>();
+        gameManager.GetComponent<HighScoreHandler>().enabled = true;
         cameraManager.FindCamera("Camera");
         cameraManager.SetCameraTarget(playerManager.transform);
-        playerManager.GetComponentInChildren<ParticleSystem>().Play();
-        
-    }
 
-    /// <summary>
-    /// Wehn called, this function starts tracking current score
-    /// </summary>
-    public void StartTrackingScore()
-    {
-        gameManager.GetComponent<HighScoreHandler>().enabled= true;
-        uiManager.ShowHighScore();
-       
+
+
     }
 
 }

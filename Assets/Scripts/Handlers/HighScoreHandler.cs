@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class HighScoreHandler : MonoBehaviour
 {
     public GameManager gameManager;
-    public UIManager uiManager;
-    public int highScore;
     private Coroutine scoreCoroutine;
     public int scoreMultiplier;
+    public int highScore;
+    public Text highScoreText;
 
     /// <summary>
     /// On enable, this function will be called
@@ -43,7 +43,7 @@ public class HighScoreHandler : MonoBehaviour
             highScore = highScore + multiplier;
 
             // update the high score UI
-            uiManager.SetHighScoreText(highScore);
+            SetHighScoreText(highScore);
         }
     }
 
@@ -86,7 +86,7 @@ public class HighScoreHandler : MonoBehaviour
     public void ResetScore()
     {
         // Set high score UI to 0
-        uiManager.SetHighScoreText(0);
+        SetHighScoreText(0);
 
         // Set high score to 0
         highScore= 0;
@@ -110,12 +110,41 @@ public class HighScoreHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// When called, this function sets the value of high score text
+    /// </summary>
+    /// <param name="value">desired value of high score text</param>
+    public void SetHighScoreText(int value)
+    {
+        if(highScoreText != null)
+        {
+            highScoreText.GetComponent<Text>().text = value.ToString();
+        }
+
+        else
+        {
+            return;
+        }        
+    }
+
+    /// <summary>
+    /// When called, this function shows the current high score
+    /// </summary>
+    public void ShowHighScore()
+    {
+
+        SetHighScoreText(PlayerPrefs.GetInt("HighScore"));
+    }
+
+
+    
+
+    /// <summary>
     /// When called, this function sets all components needed
     /// </summary>
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
-        uiManager = UIManager.GetInstance();
+        highScoreText = GameObject.Find("HighScoreText").GetComponent<Text>();
     }
 }
 

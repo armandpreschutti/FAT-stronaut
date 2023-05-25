@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SpaceExploration.unity
     guid: eadf77a836377324cb5024a01bfdf443
   - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 20239cefb9d09da41afe31c55b8384fc
+  - enabled: 1
     path: Assets/Scenes/Practice.unity
     guid: c95ed779b3e11f54a98b6a07636087d7
   m_configObjects: {}

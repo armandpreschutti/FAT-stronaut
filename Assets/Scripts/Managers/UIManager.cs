@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject highScoreText;
-    public GameObject healthSlider;
+
+    
     public GameObject shieldText;
 
     [Header("Suit Selection Buttons")]
@@ -49,59 +49,14 @@ public class UIManager : MonoBehaviour
         return uiInstance;
     }
 
-    /// <summary>
-    /// When called, this function shows the current high score
-    /// </summary>
-    public void ShowHighScore()
-    {
-        ActivateHighScoreText(true);
-        SetHighScoreText(PlayerPrefs.GetInt("HighScore"));
-    }
+   
+
+    
+    
 
     
 
-    /// <summary>
-    /// When called, this function sets the state of high score text
-    /// </summary>
-    /// <param name="state">desired state of high score text</param>
-    public void ActivateHighScoreText(bool state)
-    {
-        highScoreText.SetActive(state);
-    }
-
-    /// <summary>
-    /// When called, this function sets the value of high score text
-    /// </summary>
-    /// <param name="value">desired value of high score text</param>
-    public void SetHighScoreText(int value)
-    {
-        highScoreText.GetComponent<Text>().text = value.ToString();
-    }
-
-    /// <summary>
-    /// When called, this function sets the state of helath bar
-    /// </summary>
-    /// <param name="state"></param>
-    public void ActivateHealthBar(bool state)
-    {
-        if(healthSlider != null)
-        {
-            healthSlider.SetActive(state);
-        }
-        else
-        {
-            return;
-        }
-    }
-
-    /// <summary>
-    /// When called, this function sets health slider value to current health
-    /// </summary>
-    /// /// <param name="value">desired value of health bar</param>
-    public void SetHealthBar(float health)
-    {
-        healthSlider.GetComponent<Slider>().value = health;
-    }
+    
 
     public void ShowShield()
     {

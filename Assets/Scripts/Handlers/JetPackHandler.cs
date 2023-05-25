@@ -16,32 +16,6 @@ public class JetPackHandler : MonoBehaviour
 
     }
 
-   /* /// <summary>
-    /// Once every .02 seconds, this function is called
-    /// </summary>
-    public void FixedUpdate()
-    {
-        SetJetParticleSystem();
-    }
-
-    /// <summary>
-    /// When called, this function sets the state of the jet particle system
-    /// </summary>
-    public void SetJetParticleSystem()
-    {
-        // Check if there is any player movement input
-        if (levelManager.currentScene == 3)
-        {
-            // Turn on Jet Pack
-            playerManager.jetPackParticleSystem.Play();
-        }
-        else
-        {
-            // Turn off Jet Pack
-            playerManager.jetPackParticleSystem.Stop();
-        }
-    }*/
-
     /// <summary>
     /// When called, this function destroys all particles currently running in particle system
     /// </summary>

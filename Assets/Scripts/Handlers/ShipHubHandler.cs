@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class ShipHubHandler : MonoBehaviour
 {
-    public GameManager gameManager;
+/*    public GameManager gameManager;
     public PlayerManager playerManager;
     public UIManager uiManager;
     public CameraManager cameraManager;
-
-    public Transform startLocation;
         
     /// <summary>
     /// On start, this function is called
@@ -17,7 +15,7 @@ public class ShipHubHandler : MonoBehaviour
     public void Start()
     {
         SetComponents();
-        SetPlayerState(startLocation.transform.position);
+        SetPlayerState();
     }
     
     /// <summary>
@@ -61,5 +59,5 @@ public class ShipHubHandler : MonoBehaviour
 
 
 
-    }
+    }*/
 }

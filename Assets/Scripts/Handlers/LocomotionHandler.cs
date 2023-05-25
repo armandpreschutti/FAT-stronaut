@@ -28,31 +28,19 @@ public class LocomotionHandler : MonoBehaviour
     /// </summary>
     public void FixedUpdate()
     {
-        SetMovementMode(playerManager.playerInput.moveDirection, rb.velocity);
+        SetJetMovement(playerManager.playerInput.moveDirection, rb.velocity);
         SetPlayerFacing(rb.velocity);
     }
 
-    /// <summary>
+    /*/// <summary>
     /// When called, this function sets the movement mode based on the jet active boolean 
     /// </summary>
     /// <param name="moveDirection">direction to move player</param>
     /// <param name="velocity">the velocity of player rigidbody</param>
     public void SetMovementMode(Vector2 moveDirection, Vector2 velocity)
     {
-        // Check if jet is active
-        if (playerManager.jetPackHandler.enabled == true)
-        {
-            // Enable jet mode
-            SetJetMovement(moveDirection, velocity);
-        }
-        else if(playerManager.jetPackHandler.enabled == false)
-        {
-            // Enable walk mode
-            SetWalkMovement(moveDirection, velocity);
-        }
-
-
-    }
+        SetJetMovement(moveDirection, velocity);
+    }*/
 
     /// <summary>
     /// When called, this function sets the facing direction of the player based on the x value of the rigidbody velocity
@@ -98,7 +86,7 @@ public class LocomotionHandler : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    /// <summary>
+    /*/// <summary>
     /// When called, this function sets the walk mode movement
     /// </summary>
     /// <param name="moveDirection">the direction of input</param>
@@ -113,7 +101,7 @@ public class LocomotionHandler : MonoBehaviour
 
         // Set the rigidbody velocity to the stored velocity variable
         rb.velocity = velocity ;
-    }
+    }*/
 
     /// <summary>
     /// When called, this function sets all components needed 

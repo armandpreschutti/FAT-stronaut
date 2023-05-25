@@ -18,6 +18,7 @@ public class ObjectEmissionHandler : MonoBehaviour
     public float spawnRateMultiplier;
     public float spawnRateThreshold;
     public float startDelayTime;
+
     /// <summary>
     /// On start, this function is called
     /// </summary>
@@ -49,9 +50,6 @@ public class ObjectEmissionHandler : MonoBehaviour
     /// </summary>
     void SpawnPrefab()
     {
-        // Set spawn position to random point
-        //Vector3 spawnPosition = GetRandomSide();
-
         Bounds bounds = spawnArea.bounds;
 
         Vector3 spawnPosition = new Vector3(bounds.center.x, Random.Range(bounds.min.y, bounds.max.y), 0f);
@@ -104,55 +102,4 @@ public class ObjectEmissionHandler : MonoBehaviour
     {
         isLooping = false;
     }
-
-
-    /*/// <summary>
-    /// When called, this function returns a Vector 3 of a random point along the perimeter of box collider
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 GetRandomSide()
-    {
-        // Choose a random side of the box collider
-        int side = Random.Range(0, 4);
-
-        // Choose a random point on the chosen side of the box collider
-        float x, y;
-        switch (side)
-        {
-            case 0: // Top side
-                x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
-                y = spawnArea.bounds.max.y;
-                break;
-            case 1: // Right side
-                x = spawnArea.bounds.max.x;
-                y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
-                break;
-            case 2: // Bottom side
-                x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
-                y = spawnArea.bounds.min.y;
-                break;
-            default: // Left side
-                x = spawnArea.bounds.min.x;
-                y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
-                break;
-        }
-
-        // Return the chosen random point on the outside of the box collider
-        return new Vector3(x, y, 0);
-    }*/
-
-    /*private void OnTriggerExit2D(Collider2D collision)
-    {
-        // Check if the object is player
-        if (collision.tag == "Object")
-        {
-            // Deactivate enter button
-            Destroy(collision);
-        }
-
-        else
-        {
-            return;
-        }
-    }*/
 }

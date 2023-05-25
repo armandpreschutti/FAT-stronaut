@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour
 {
     public PlayerManager playerManager;
-    public UIManager uiManager;
+    public GameObject healthSlider;
     public float currentHealth;
     public float MaxHealth;
     public float depletionRate;
@@ -30,9 +32,6 @@ public class HealthHandler : MonoBehaviour
 
         // set current health to zero
         currentHealth = 0;
-
-        // Set health bar to inactive
-        uiManager.ActivateHealthBar(false);
     }
 
 
@@ -49,9 +48,7 @@ public class HealthHandler : MonoBehaviour
     /// When called, this function resets player health variabls
     /// </summary>
     public void ResetHealth()    
-    {
-        uiManager.ActivateHealthBar(true);
-        
+    {        
         // Set death state to false
         playerManager.isDead =false;
 
@@ -71,7 +68,7 @@ public class HealthHandler : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth); 
         
         // Set health bar value
-        uiManager.SetHealthBar(currentHealth);
+        SetHealthBar(currentHealth);
 
         // Check if current health is 0
         if (currentHealth == 0f)
@@ -80,7 +77,7 @@ public class HealthHandler : MonoBehaviour
             playerManager.isDead = true;
 
             // Return player to ship hub
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -95,11 +92,20 @@ public class HealthHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// When called, this function sets health slider value to current health
+    /// </summary>
+    /// /// <param name="value">desired value of health bar</param>
+    public void SetHealthBar(float health)
+    {
+        healthSlider.GetComponent<Slider>().value = health;
+    }
+
+    /// <summary>
     /// When called, this function sets all components needed
     /// </summary>
     public void SetComponents()
     {
         playerManager = GetComponent<PlayerManager>();
-        uiManager = UIManager.GetInstance();
+        healthSlider = GameObject.Find("HealthBar");
     }
 }

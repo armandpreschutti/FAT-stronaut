@@ -142,7 +142,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 12
   healthValue: 0
-  damageValue: 40
+  damageValue: 2
   direction: {x: 1, y: 1}
   lifeTime: 200
   playerIncreaseRate: 1

@@ -33,6 +33,7 @@ public class GameOverHandler : MonoBehaviour
         playerManager.GetComponent<SpriteRenderer>().enabled = false;
         playerManager.GetComponent<LocomotionHandler>().enabled = false;
         playerManager.GetComponent<HealthHandler>().enabled = false;
+        playerManager.GetComponent<ShieldHandler>().enabled = false;
         playerManager.GetComponent<PlayerInput>().enabled = false;
         playerManager.GetComponentInChildren<JetPackHandler>().DestroyAllParticles();
         playerManager.transform.position = Vector3.zero;

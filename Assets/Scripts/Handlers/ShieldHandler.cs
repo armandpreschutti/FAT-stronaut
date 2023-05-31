@@ -10,7 +10,8 @@ public class ShieldHandler : MonoBehaviour
 
     PlayerManager playerManager;
     public GameObject shieldText;
-    public GameObject[] shieldBars;
+    public GameObject shieldSlider;
+    public GameObject spaceExplorationHandler;
     public float currentShield;
     public float maxShield;
 
@@ -19,27 +20,43 @@ public class ShieldHandler : MonoBehaviour
     public void OnEnable()
     {
         SetComponents();
-        SetShieldText();
+        SetShieldBar(currentShield);
     }
 
     public void SetComponents()
     {
         playerManager = GetComponent<PlayerManager>();
-
-        shieldText = GameObject.Find("ShieldText");
+        shieldSlider = GameObject.Find("ShieldBar");
+        spaceExplorationHandler = GameObject.Find("SpaceExplorationManager");
         currentShield = maxShield;
     }
 
     public void DamageShield(int damage)
     {
         currentShield -= damage;
-        SetShieldText();
+
+        SetShieldBar(currentShield);
+
+        // Check if current health is 0
+        if (currentShield == 0f)
+        {
+            // Set death state to true
+            playerManager.isDead = true;
+
+            
+            // Return player to ship hub
+            spaceExplorationHandler.GetComponent<SpaceExplorationHandler>().GameOver();
+        }
     }
 
-    public void SetShieldText()
+    /// <summary>
+    /// When called, this function sets health slider value to current health
+    /// </summary>
+    /// /// <param name="value">desired value of health bar</param>
+    public void SetShieldBar(float shieldValue)
     {
-        shieldText.GetComponent<Text>().text = currentShield.ToString();
+        shieldSlider.GetComponent<Slider>().value = shieldValue;
     }
-    
+
 
 }

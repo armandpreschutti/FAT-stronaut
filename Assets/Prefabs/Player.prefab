@@ -132,11 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc8b0ccfd22da245a86162b2a604355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerManager: {fileID: 0}
-  ShieldSlider: {fileID: 0}
+  shieldText: {fileID: 0}
+  shieldSlider: {fileID: 0}
   currentShield: 0
-  maxHealth: 0
-  regenerationRate: 0
+  maxShield: 5
 --- !u!114 &-7704840356532000671
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 public class SpaceExplorationHandler : MonoBehaviour
 {
     public GameManager gameManager;
     public PlayerManager playerManager;
     public CameraManager cameraManager;
+    public PlayableDirector playableDirector;
 
     /// <summary>
     /// On start, this function is called
@@ -62,9 +66,16 @@ public class SpaceExplorationHandler : MonoBehaviour
         gameManager.GetComponent<HighScoreHandler>().enabled = true;
         cameraManager.FindCamera("Camera");
         cameraManager.SetCameraTarget(playerManager.transform);
-
-
-
+    }
+    public void GameOver()
+    {
+        playableDirector.Play();
+        playerManager.GetComponent<HealthHandler>().enabled = false;
+        playerManager.GetComponent<ShieldHandler>().enabled = false;
+    }
+    public void SendToGameOverMenu()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
 }

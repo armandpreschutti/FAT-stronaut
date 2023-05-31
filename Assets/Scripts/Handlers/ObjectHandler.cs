@@ -65,7 +65,7 @@ public class ObjectHandler : MonoBehaviour
             else if(isObstacle)
             {
                 // Apply damage to player
-               // collision.gameObject.GetComponent<ShieldHandler>().DamageShield(damageValue);
+                collision.gameObject.GetComponent<ShieldHandler>().DamageShield(damageValue);
 
                 // Play crash animation
                 collision.transform.DOShakePosition(.5f, new Vector3(0,.15f,.15f), 10, 0);

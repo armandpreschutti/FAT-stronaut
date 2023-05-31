@@ -140,10 +140,12 @@ MonoBehaviour:
   col: {fileID: 1253314900552462746}
   target: {fileID: 0}
   speed: 6
-  healthValue: -10
+  healthValue: 0
+  damageValue: 20
   direction: {x: 1, y: 1}
   lifeTime: 200
   playerIncreaseRate: 1
   objectEffect: {fileID: 2372946137838410910, guid: 2e49d8841b7952c4ab05b695fa577b63, type: 3}
   isFood: 0
+  isObstacle: 1
   objectSFX: {fileID: 8300000, guid: 12986a3425267144ab64ad0823f03e76, type: 3}

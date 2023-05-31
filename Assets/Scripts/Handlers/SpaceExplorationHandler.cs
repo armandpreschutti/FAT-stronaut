@@ -38,6 +38,9 @@ public class SpaceExplorationHandler : MonoBehaviour
         // Activate health system
         playerManager.healthHandler.enabled = true;
 
+        // Activate shield system
+        playerManager.GetComponent<ShieldHandler>().enabled= true;
+
         // Activate sprite renderer
         playerManager.GetComponent<SpriteRenderer>().enabled = true;
 

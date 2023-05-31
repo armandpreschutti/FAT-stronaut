@@ -142,11 +142,13 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 12
   healthValue: 0
+  damageValue: 40
   direction: {x: 1, y: 1}
   lifeTime: 200
   playerIncreaseRate: 1
   objectEffect: {fileID: 2372946137838410910, guid: 7ee7119b4d90e69479d93aac5b329fd6, type: 3}
   isFood: 0
+  isObstacle: 1
   objectSFX: {fileID: 8300000, guid: 12986a3425267144ab64ad0823f03e76, type: 3}
 --- !u!1 &2427799306880290356
 GameObject:

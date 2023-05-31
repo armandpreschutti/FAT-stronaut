@@ -12,11 +12,13 @@ public class ObjectHandler : MonoBehaviour
     public PlayerManager target;
     public float speed;
     public float healthValue;
+    public int damageValue;
     public Vector2 direction;
     public float lifeTime;
     public float playerIncreaseRate;
     public GameObject objectEffect;
     public bool isFood;
+    public bool isObstacle;
     public AudioClip objectSFX;
 
     /// <summary>
@@ -45,9 +47,6 @@ public class ObjectHandler : MonoBehaviour
         // Check if the collider is player
         if (collision.gameObject.tag == "Player")   
         {
-            // Apply health or damage to player
-            collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
-
             // Increase the size of player
             collision.gameObject.GetComponent<PlayerManager>().playerSizeHandler.IncreaseSize(playerIncreaseRate);
 
@@ -56,14 +55,25 @@ public class ObjectHandler : MonoBehaviour
 
             if (isFood)
             {
-                collision.transform.DOPunchScale(new Vector3(.25f,.25f,.25f), .5f);
-                
+                // Apply health to player
+                collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
 
+                // Play chew animation
+                collision.transform.DOPunchScale(new Vector3(.25f,.25f,.25f), .5f);
             }
+
+            else if(isObstacle)
+            {
+                // Apply damage to player
+               // collision.gameObject.GetComponent<ShieldHandler>().DamageShield(damageValue);
+
+                // Play crash animation
+                collision.transform.DOShakePosition(.5f, new Vector3(0,.15f,.15f), 10, 0);
+            }
+
             else
             {
-                collision.transform.DOShakePosition(.5f, new Vector3(0,.15f,.15f), 10, 0);
-
+                return;
             }
 
             // Play object SFX
@@ -71,7 +81,6 @@ public class ObjectHandler : MonoBehaviour
 
             // Destroy this game object
             DestroySelf();
-
         }
     }
 

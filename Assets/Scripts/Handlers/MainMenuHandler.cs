@@ -61,6 +61,8 @@ public class MainMenuHandler : MonoBehaviour
 
     public void SetPlayerState()
     {
+        
+        playerManager.GetComponent<ShieldHandler>().enabled = false;
         playerManager.GetComponent<SpriteRenderer>().enabled = false;
         playerManager.GetComponent<LocomotionHandler>().enabled = false;
         playerManager.GetComponent<HealthHandler>().enabled = false;

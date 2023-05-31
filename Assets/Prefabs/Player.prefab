@@ -133,10 +133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
-  uiManager: {fileID: 0}
-  shieldText: {fileID: 0}
+  ShieldSlider: {fileID: 0}
   currentShield: 0
-  maxShield: 5
+  maxHealth: 0
+  regenerationRate: 0
 --- !u!114 &-7704840356532000671
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -706,7 +706,7 @@ PlayableDirector:
   - key: {fileID: -2749040137335250258, guid: 68aa62105c34fc44a89cb428cb671f56, type: 2}
     value: {fileID: 182453702}
   - key: {fileID: -7760108449792203937, guid: 68aa62105c34fc44a89cb428cb671f56, type: 2}
-    value: {fileID: 1219787095}
+    value: {fileID: 1219787098}
   m_ExposedReferences:
     m_References:
     - 9b705aaf2bdd8b941aa88ed1b210dd9b: {fileID: 182453699}
@@ -6586,7 +6586,7 @@ GameObject:
   - component: {fileID: 1219787094}
   - component: {fileID: 1219787097}
   - component: {fileID: 1219787096}
-  - component: {fileID: 1219787095}
+  - component: {fileID: 1219787098}
   m_Layer: 5
   m_Name: Fade
   m_TagString: Untagged
@@ -6614,26 +6614,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1219787095
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219787093}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d947c054ff258d4982637a35b062116, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &1219787096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6672,6 +6652,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219787093}
   m_CullTransparentMesh: 1
+--- !u!95 &1219787098
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219787093}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1242726810
 GameObject:
   m_ObjectHideFlags: 0
@@ -7212,11 +7212,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -204160987348696296, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: maxShield
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4274885973197862688, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: MaxHealth
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4274885973197862688, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: depletionRate

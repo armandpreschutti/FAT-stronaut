@@ -6232,17 +6232,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1556626085722361026, guid: d9f24f97858592c4cba2d2f5294883e5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1556626085722361026, guid: d9f24f97858592c4cba2d2f5294883e5, type: 3}
-      propertyPath: scoreMultiplier
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2198436844683148520, guid: d9f24f97858592c4cba2d2f5294883e5, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198436844683148520, guid: d9f24f97858592c4cba2d2f5294883e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2198436844683148522, guid: d9f24f97858592c4cba2d2f5294883e5, type: 3}
       propertyPath: m_RootOrder
@@ -7269,6 +7265,10 @@ PrefabInstance:
     - target: {fileID: 7773363599430451509, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7773363599430451509, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9232a4692642647ac5e8d9cd17c3e7, type: 3}
@@ -12943,6 +12943,10 @@ PrefabInstance:
     - target: {fileID: 4337699186163628224, guid: 961aaa2b5043f79448550e2729fdca0e, type: 3}
       propertyPath: m_Name
       value: CameraManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337699186163628224, guid: 961aaa2b5043f79448550e2729fdca0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337699186163628229, guid: 961aaa2b5043f79448550e2729fdca0e, type: 3}
       propertyPath: m_RootOrder

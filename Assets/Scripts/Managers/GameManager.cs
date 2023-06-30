@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     private static GameManager gameInstance;
     public LevelManager levelManager;
     public PlayerManager playerManager;
-    //public UIManager uiManager;
 
-    public bool debugMode;
+
+    //public bool debugMode;
 
     /// <summary>
     /// On awake, this function sets this game object to a game manager singleton
@@ -67,10 +67,9 @@ public class GameManager : MonoBehaviour
     {
         levelManager = GetComponent<LevelManager>();
         SetPlayer();
-        //uiManager = UIManager.GetInstance();
     }
 
-    /// <summary>
+   /* /// <summary>
     /// When called, this function sets debug mode for the game manager
     /// </summary>
     /// <param name="debug">debug mode boolean</param>
@@ -100,5 +99,5 @@ public class GameManager : MonoBehaviour
             // Do nothing
             return;
         }
-    }
+    }*/
 }

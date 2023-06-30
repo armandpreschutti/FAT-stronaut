@@ -72,7 +72,7 @@ public class HealthHandler : MonoBehaviour
         SetHealthBar(currentHealth);
 
         // Check if current health is 0
-        if (currentHealth == 0f)
+        if (currentHealth <= 0f)
         {
             // Set death state to true
             playerManager.isDead = true;

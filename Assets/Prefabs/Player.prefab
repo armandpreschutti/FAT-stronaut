@@ -116,10 +116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  spaceExplorationHandler: {fileID: 0}
   healthSlider: {fileID: 0}
   currentHealth: 0
   MaxHealth: 100
-  depletionRate: 4
+  depletionRate: 3
 --- !u!114 &-204160987348696296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldText: {fileID: 0}
   shieldSlider: {fileID: 0}
+  spaceExplorationHandler: {fileID: 0}
   currentShield: 0
   maxShield: 5
 --- !u!114 &-7704840356532000671

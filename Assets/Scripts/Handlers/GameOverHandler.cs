@@ -30,7 +30,6 @@ public class GameOverHandler : MonoBehaviour
         gameManager = GameManager.GetInstance();
         playerManager = PlayerManager.GetInstance();
         gameManager.GetComponent<HighScoreHandler>().enabled = false;
-        playerManager.GetComponent<SpriteRenderer>().enabled = false;
         playerManager.GetComponent<LocomotionHandler>().enabled = false;
         playerManager.GetComponent<HealthHandler>().enabled = false;
         playerManager.GetComponent<ShieldHandler>().enabled = false;

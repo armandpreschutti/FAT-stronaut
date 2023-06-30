@@ -38,7 +38,7 @@ public class ShieldHandler : MonoBehaviour
         SetShieldBar(currentShield);
 
         // Check if current health is 0
-        if (currentShield == 0f)
+        if (currentShield <= 0f)
         {
             // Set death state to true
             playerManager.isDead = true;

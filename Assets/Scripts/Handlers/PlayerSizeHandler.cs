@@ -14,7 +14,6 @@ public class PlayerSizeHandler : MonoBehaviour
     public void IncreaseSize(float rate)
     {
         currentSize = transform.localScale.magnitude;
-        Debug.Log(currentSize);
         if(transform.localScale.magnitude < maxSize)
         {
             // Multiply current scale by parameter

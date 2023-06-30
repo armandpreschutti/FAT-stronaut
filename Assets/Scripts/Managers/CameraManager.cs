@@ -80,7 +80,7 @@ public class CameraManager : MonoBehaviour
     public void SetCameraTarget(Transform target)
     {
         vCam.Follow = target;
-        //vCam.LookAt = target;
+
     }
 
     /// <summary>

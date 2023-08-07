@@ -90,7 +90,7 @@ public class SuitHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
-        playerManager = PlayerManager.GetInstance();
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
         previewRenderer = GetComponent<SpriteRenderer>();
     }
 

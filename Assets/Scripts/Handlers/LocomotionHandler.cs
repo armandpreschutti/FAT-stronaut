@@ -28,42 +28,7 @@ public class LocomotionHandler : MonoBehaviour
     /// </summary>
     public void FixedUpdate()
     {
-        SetJetMovement(playerManager.playerInput.moveDirection, rb.velocity);
-        SetPlayerFacing(rb.velocity);
-    }
-
-    /*/// <summary>
-    /// When called, this function sets the movement mode based on the jet active boolean 
-    /// </summary>
-    /// <param name="moveDirection">direction to move player</param>
-    /// <param name="velocity">the velocity of player rigidbody</param>
-    public void SetMovementMode(Vector2 moveDirection, Vector2 velocity)
-    {
-        SetJetMovement(moveDirection, velocity);
-    }*/
-
-    /// <summary>
-    /// When called, this function sets the facing direction of the player based on the x value of the rigidbody velocity
-    /// </summary>
-    /// <param name="velocity">the velocity of the rigidbody</param>
-    public void SetPlayerFacing(Vector2 velocity)
-    {
-        // Check if the character's velocity has changed
-        if (velocity != lastVelocity)
-        {
-            // Update the character's direction
-            if (velocity.x > 0f)
-            {
-                spriteRenderer.flipX = false; // face right
-            }
-            else if (velocity.x < 0f)
-            {
-                spriteRenderer.flipX = true; // face left
-            }
-        }
-
-        // Store the character's current velocity for the next update
-        lastVelocity = velocity;
+        Movement(playerManager.playerInput.moveDirection, rb.velocity);
     }
 
     /// <summary>
@@ -71,7 +36,7 @@ public class LocomotionHandler : MonoBehaviour
     /// </summary>
     /// <param name="moveDirection">the direction of input</param>
     /// <param name="velocity">the velocity of the rigidbody</param>
-    public void SetJetMovement(Vector2 moveDirection, Vector2 velocity)
+    public void Movement(Vector2 moveDirection, Vector2 velocity)
     {
         // Get the rigidbody velocity and store it
         velocity = rb.velocity;
@@ -85,23 +50,6 @@ public class LocomotionHandler : MonoBehaviour
         // Set the rigidbody velocity to the stored velocity variable
         rb.velocity = velocity;
     }
-
-    /*/// <summary>
-    /// When called, this function sets the walk mode movement
-    /// </summary>
-    /// <param name="moveDirection">the direction of input</param>
-    /// <param name="velocity">the velocity of the rigidbody</param>
-    public void SetWalkMovement(Vector2 moveDirection, Vector2 velocity)
-    {
-        // Get the rigidbody velocity and store it
-        velocity = rb.velocity;
-
-        // Add the movement direction and speed to the stored velocity variable
-        velocity = moveDirection * speed;
-
-        // Set the rigidbody velocity to the stored velocity variable
-        rb.velocity = velocity ;
-    }*/
 
     /// <summary>
     /// When called, this function sets all components needed 

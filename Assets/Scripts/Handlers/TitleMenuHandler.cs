@@ -19,7 +19,7 @@ public class TitleMenuHandler : MonoBehaviour
     /// </summary>
     public void EnterGame()
     {
-        gameManager.levelManager.NextScene();
+        gameManager.GoToScene(2);
     }
 
     /// <summary>

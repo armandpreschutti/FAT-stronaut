@@ -8,7 +8,6 @@ using TMPro;
 public class GameOverHandler : MonoBehaviour
 {
     public GameManager gameManager;
-    public PlayerManager playerManager;
 
     public void Start()
     {
@@ -28,14 +27,6 @@ public class GameOverHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
-        playerManager = PlayerManager.GetInstance();
         gameManager.GetComponent<HighScoreHandler>().enabled = false;
-        playerManager.GetComponent<LocomotionHandler>().enabled = false;
-        playerManager.GetComponent<HealthHandler>().enabled = false;
-        playerManager.GetComponent<ShieldHandler>().enabled = false;
-        playerManager.GetComponent<PlayerInput>().enabled = false;
-        playerManager.GetComponentInChildren<JetPackHandler>().DestroyAllParticles();
-        playerManager.transform.position = Vector3.zero;
-        playerManager.rb.velocity = Vector3.zero;
     }
 }

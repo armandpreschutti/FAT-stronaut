@@ -9,7 +9,6 @@ public class SpaceExplorationHandler : MonoBehaviour
 {
     public GameManager gameManager;
     public PlayerManager playerManager;
-    public CameraManager cameraManager;
     public PlayableDirector playableDirector;
 
     /// <summary>
@@ -43,6 +42,7 @@ public class SpaceExplorationHandler : MonoBehaviour
         playerManager.healthHandler.enabled = true;
 
         // Activate shield system
+
         playerManager.GetComponent<ShieldHandler>().enabled= true;
 
         // Activate sprite renderer
@@ -61,11 +61,8 @@ public class SpaceExplorationHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
-        playerManager = PlayerManager.GetInstance();
-        cameraManager = CameraManager.GetInstance();
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();    
         gameManager.GetComponent<HighScoreHandler>().enabled = true;
-        cameraManager.FindCamera("Camera");
-        cameraManager.SetCameraTarget(playerManager.transform);
     }
     public void GameOver()
     {

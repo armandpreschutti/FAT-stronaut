@@ -65,7 +65,6 @@ public class ObjectEmissionHandler : MonoBehaviour
     public void SetComponents()
     {
         spawnArea = GetComponent<BoxCollider2D>();
-        playerManager = PlayerManager.GetInstance();
     }
 
     /// <summary>

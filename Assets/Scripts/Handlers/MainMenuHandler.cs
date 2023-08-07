@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MainMenuHandler : MonoBehaviour
 {
     public GameManager gameManager;
-    public PlayerManager playerManager;
+
     public GameObject settingsMenu;
     public Text highScoreText;
 
@@ -18,7 +18,7 @@ public class MainMenuHandler : MonoBehaviour
     public void Start()
     {
         SetComponents();
-        SetPlayerState();   
+        
     }
 
     /// <summary>
@@ -26,17 +26,9 @@ public class MainMenuHandler : MonoBehaviour
     /// </summary>
     public void StartSpaceExploration()
     {
-        gameManager.levelManager.SwitchScene(3);
+        gameManager.SwitchScene(3);
     }
 
-    /// <summary>
-    /// When called, this function starts game
-    /// </summary>
-    public void StartPractice()
-    {
-        gameManager.levelManager.SwitchScene(4);
-    }
-    
     public void EnableSettings()
     {
         settingsMenu.SetActive(true);
@@ -54,22 +46,8 @@ public class MainMenuHandler : MonoBehaviour
     public void SetComponents()
     {
         gameManager = GameManager.GetInstance();
-        playerManager = PlayerManager.GetInstance();
         gameManager.GetComponent<HighScoreHandler>().enabled = false;
         DisplayHighScore();
-    }
-
-    public void SetPlayerState()
-    {
-        
-        playerManager.GetComponent<ShieldHandler>().enabled = false;
-        playerManager.GetComponent<SpriteRenderer>().enabled = false;
-        playerManager.GetComponent<LocomotionHandler>().enabled = false;
-        playerManager.GetComponent<HealthHandler>().enabled = false;
-        playerManager.GetComponent<PlayerInput>().enabled = false;
-        playerManager.GetComponentInChildren<JetPackHandler>().DestroyAllParticles();
-        playerManager.transform.position = Vector3.zero;
-        playerManager.rb.velocity = Vector3.zero;
     }
 
     public void DisplayHighScore()

@@ -33,7 +33,7 @@ public class SplashScreenHandler : MonoBehaviour
     /// </summary>
     public void EndSplashScreen()
     {
-        gameManager.levelManager.GoToScene(1);
+        gameManager.GoToScene(1);
     }
 
     /// <summary>

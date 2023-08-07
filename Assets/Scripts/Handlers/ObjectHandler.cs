@@ -9,7 +9,6 @@ public class ObjectHandler : MonoBehaviour
 
     public Rigidbody2D rb;
     public Collider2D col;
-    public PlayerManager target;
     public float speed;
     public float healthValue;
     public int damageValue;
@@ -103,7 +102,6 @@ public class ObjectHandler : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        target = PlayerManager.GetInstance();
     }
 
     /// <summary>

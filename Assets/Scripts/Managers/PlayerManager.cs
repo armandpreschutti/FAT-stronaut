@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     
-    public static PlayerManager playerInstance;
 
     [Header("Components")]
     public GameManager gameManager;
@@ -14,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     public LocomotionHandler locomotionHandler;
     public PlayerInput playerInput;
     public ParticleSystem jetPackParticleSystem;
-    public JetPackHandler jetPackHandler;
+
     public HealthHandler healthHandler;
     public PlayerSizeHandler playerSizeHandler;
 
@@ -22,36 +21,6 @@ public class PlayerManager : MonoBehaviour
     public int suitID;
     public bool isExploring;
     public bool isDead;
-
-    /// <summary>
-    /// On awake, this function sets this game object to a player manager singleton
-    /// </summary
-    private void Awake()
-    {
-        // Check if this game object already exists
-        if (playerInstance == null)
-        {
-            // Set this to player manager singleton
-            playerInstance = this;
-
-            // Don't destroy between scenes
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // Destroy this game object
-            Destroy(gameObject);
-        }
-    }
-
-    /// <summary>
-    /// When called, this function returns the current singleton instance of the player manager
-    /// </summary>
-    /// <returns>player manager instance</returns>
-    public static PlayerManager GetInstance()
-    {
-        return playerInstance;
-    }
 
     /// <summary>
     /// On start, this function is called
@@ -72,7 +41,6 @@ public class PlayerManager : MonoBehaviour
         boxCol = GetComponent<BoxCollider2D>();
         jetPackParticleSystem = GetComponentInChildren<ParticleSystem>();
         gameManager = GameManager.GetInstance();
-        jetPackHandler = FindObjectOfType<JetPackHandler>();
         healthHandler = FindObjectOfType<HealthHandler>();
         playerSizeHandler = GetComponent<PlayerSizeHandler>();
     }   

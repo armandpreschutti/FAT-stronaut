@@ -1,17 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Components")]
     private static GameManager gameInstance;
-    public LevelManager levelManager;
     public PlayerManager playerManager;
 
 
-    //public bool debugMode;
+    [Header("LevelManagement")]
+    const int splashScreen = 0;
+    const int titleMenu = 1;
+    const int mainMenu = 2;
+    const int spaceExploration = 3;
+    const int gameOver = 4;
+    public int currentScene = splashScreen;
 
     /// <summary>
     /// On awake, this function sets this game object to a game manager singleton
@@ -57,47 +61,66 @@ public class GameManager : MonoBehaviour
     /// <param name="playerManager"></param>
     public void SetPlayer()
     {
-        playerManager = PlayerManager.GetInstance();
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
+    /// <summary>
+    /// When called, this function takes an integer and switches the scene to the correlating case number
+    /// </summary>
+    /// <param name="scene">destination scene</param>
+    public void SwitchScene(int scene)
+    {
+        // Check the integer passed through parameter
+        switch (scene)
+        {
+            // Switch to Splash Screen scene
+            case splashScreen:
+                SceneManager.LoadScene("SplashScreen");
+                break;
+
+            // Switch to Title Menu scene
+            case titleMenu:
+                SceneManager.LoadScene("TitleMenu");
+                break;
+
+            // Switch to Title Menu scene
+            case mainMenu:
+                SceneManager.LoadScene("MainMenu");
+                break;
+
+            // Switch to Space Exploration scene
+            case spaceExploration:
+                SceneManager.LoadScene("SpaceExploration");
+                break;
+
+            // Switch to Game Over scene
+            case gameOver:
+                SceneManager.LoadScene("GameOver");
+                break;
+            // Do nothing if parameter is out of scope
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// When called, this function takes and integer then calls the "SwitchScene" function using the "newScene" parameter
+    /// </summary>
+    /// <param name="newScene"destination scene></param>
+    public void GoToScene(int newScene)
+    {
+        // Set the current scene to the parameter scene
+        currentScene = newScene;
+
+        // Set the scene to the current scene
+        SwitchScene(currentScene);
+    }
+
 
     /// <summary>
     /// When called, this function sets all components needed by game manager
     /// </summary>
     public void SetComponents()
     {
-        levelManager = GetComponent<LevelManager>();
-        SetPlayer();
+
     }
-
-   /* /// <summary>
-    /// When called, this function sets debug mode for the game manager
-    /// </summary>
-    /// <param name="debug">debug mode boolean</param>
-    public void SetDebugMode(bool debug)
-    {
-        // Check if debug mode is activated
-        if (debug)
-        {
-            // Check if player presses positive button
-            if (Input.GetButtonDown("Fire1"))
-            {
-                // Go to the next scene in build
-                levelManager.NextScene();
-            }
-
-            // Check if player presses negative button
-            if (Input.GetButtonDown("Fire2"))
-            {
-                // Go to the previous scene in build
-                levelManager.PreviousScene();
-            }
-        }
-
-        // Check if debug mode is not activated
-        else
-        {
-            // Do nothing
-            return;
-        }
-    }*/
 }

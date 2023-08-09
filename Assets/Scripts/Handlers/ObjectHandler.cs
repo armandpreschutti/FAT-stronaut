@@ -47,7 +47,7 @@ public class ObjectHandler : MonoBehaviour
         if (collision.gameObject.tag == "Player")   
         {
             // Increase the size of player
-            collision.gameObject.GetComponent<PlayerManager>().playerSizeHandler.IncreaseSize(playerIncreaseRate);
+            collision.gameObject.GetComponent<PlayerSizeHandler>().IncreaseSize(playerIncreaseRate);
 
             // Play object VFX
             Instantiate(objectEffect, transform.position, Quaternion.identity);

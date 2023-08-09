@@ -9,10 +9,10 @@ using DG.Tweening.Core.Easing;
 
 public class ObjectEmissionHandler : MonoBehaviour
 {
+    public GameObject player;
     public GameObject prefabToSpawn;
     public BoxCollider2D spawnArea;
     public int spawnCount;
-    public PlayerManager playerManager;
     private bool isLooping = false;
     public float spawnTimeRate;
     public float spawnRateMultiplier;
@@ -30,7 +30,7 @@ public class ObjectEmissionHandler : MonoBehaviour
 
     public void Update()
     {
-        this.transform.position = playerManager.transform.position;
+        this.transform.position = player.transform.position;
     }
 
     /// <summary>
@@ -65,6 +65,7 @@ public class ObjectEmissionHandler : MonoBehaviour
     public void SetComponents()
     {
         spawnArea = GetComponent<BoxCollider2D>();
+        player = GameObject.Find("Player");
     }
 
     /// <summary>

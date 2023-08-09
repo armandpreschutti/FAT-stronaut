@@ -27,7 +27,7 @@ public class ButtonHandler : MonoBehaviour
         switch(buttonType)
         {
 
-            // Preview the previous suit
+            /*// Preview the previous suit
             case "PreviousSuitButton":
                 suitHandler.GetComponent<SuitHandler>().PreviewPreviousSuit();
                 return;
@@ -35,7 +35,7 @@ public class ButtonHandler : MonoBehaviour
             // Preview the next suit
             case "NextSuitButton":
                 suitHandler.GetComponent<SuitHandler>().PreviewNextSuit();
-                return;
+                return;*/
 
             // Reset High Score
             case "ResetButton":

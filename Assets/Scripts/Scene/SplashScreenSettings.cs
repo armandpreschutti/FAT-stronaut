@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using TMPro;
-public class SplashScreenHandler : MonoBehaviour
+using UnityEngine.SceneManagement;
+
+public class SplashScreenSettings : MonoBehaviour
 {
     public GameManager gameManager;
-
+    public string nextScene = "TitleMenu";
     public float splashDuration;
 
     /// <summary>
@@ -14,9 +16,7 @@ public class SplashScreenHandler : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        SetComponents();
         StartSplashScreen(splashDuration);
-        
     }
 
     /// <summary>
@@ -33,15 +33,7 @@ public class SplashScreenHandler : MonoBehaviour
     /// </summary>
     public void EndSplashScreen()
     {
-        gameManager.GoToScene(1);
-    }
-
-    /// <summary>
-    /// When called, this function sets all components needed
-    /// </summary>
-    public void SetComponents()
-    {
-        gameManager = GameManager.GetInstance();
+        SceneManager.LoadScene(nextScene);
     }
 
 }

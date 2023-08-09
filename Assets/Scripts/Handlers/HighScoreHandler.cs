@@ -1,22 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HighScoreHandler : MonoBehaviour
 {
-    public GameManager gameManager;
+
     private Coroutine scoreCoroutine;
     public int scoreMultiplier;
     public int highScore;
     public Text highScoreText;
+    
 
     /// <summary>
     /// On enable, this function will be called
     /// </summary>
     public void OnEnable()
     {
-        SetComponents();
+        
         ResetScore();
         scoreCoroutine = StartCoroutine(IncreaseScoreCoroutine());
     }
@@ -28,6 +28,7 @@ public class HighScoreHandler : MonoBehaviour
     {
         StopScoreCoroutine();
         SaveHighScore();
+        highScoreText = null;
     }
    
     /// <summary>
@@ -103,6 +104,7 @@ public class HighScoreHandler : MonoBehaviour
             // Save session score as new high score
             PlayerPrefs.SetInt("HighScore", highScore);
         }
+
         else
         {
             return;
@@ -130,21 +132,8 @@ public class HighScoreHandler : MonoBehaviour
     /// When called, this function shows the current high score
     /// </summary>
     public void ShowHighScore()
-    {
-
+    { 
         SetHighScoreText(PlayerPrefs.GetInt("HighScore"));
-    }
-
-
-    
-
-    /// <summary>
-    /// When called, this function sets all components needed
-    /// </summary>
-    public void SetComponents()
-    {
-        gameManager = GameManager.GetInstance();
-        highScoreText = GameObject.Find("HighScoreText").GetComponent<Text>();
     }
 }
 

@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour
 {
-    public PlayerManager playerManager;
-    public GameObject spaceExplorationHandler;
+
+    public GameObject spaceExplorationSettings;
     public GameObject healthSlider;
     public float currentHealth;
     public float MaxHealth;
@@ -28,8 +28,7 @@ public class HealthHandler : MonoBehaviour
     /// </summary>
     public void OnDisable()
     {
-        // Set player state to dead
-        playerManager.isDead = true;
+
 
         // set current health to zero
         currentHealth = 0;
@@ -50,8 +49,6 @@ public class HealthHandler : MonoBehaviour
     /// </summary>
     public void ResetHealth()    
     {        
-        // Set death state to false
-        playerManager.isDead =false;
 
         // Set current health to max health 
         currentHealth = MaxHealth;
@@ -74,11 +71,9 @@ public class HealthHandler : MonoBehaviour
         // Check if current health is 0
         if (currentHealth <= 0f)
         {
-            // Set death state to true
-            playerManager.isDead = true;
 
             // Return player to ship hub
-            spaceExplorationHandler.GetComponent<SpaceExplorationHandler>().GameOver();
+            spaceExplorationSettings.GetComponent<SpaceExplorationSettings>().GameOver();
         }
     }
 
@@ -106,8 +101,8 @@ public class HealthHandler : MonoBehaviour
     /// </summary>
     public void SetComponents()
     {
-        playerManager = GetComponent<PlayerManager>();
+
         healthSlider = GameObject.Find("HealthBar");
-        spaceExplorationHandler = GameObject.Find("SpaceExplorationManager");
+        spaceExplorationSettings = GameObject.Find("SpaceExplorationSettings");
     }
 }

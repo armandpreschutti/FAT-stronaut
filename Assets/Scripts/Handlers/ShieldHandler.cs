@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ShieldHandler : MonoBehaviour
 {
 
-    PlayerManager playerManager;
+
     public GameObject shieldText;
     public GameObject shieldSlider;
     public GameObject spaceExplorationHandler;
@@ -25,7 +25,7 @@ public class ShieldHandler : MonoBehaviour
 
     public void SetComponents()
     {
-        playerManager = GetComponent<PlayerManager>();
+
         shieldSlider = GameObject.Find("ShieldBar");
         spaceExplorationHandler = GameObject.Find("SpaceExplorationManager");
         currentShield = maxShield;
@@ -40,12 +40,10 @@ public class ShieldHandler : MonoBehaviour
         // Check if current health is 0
         if (currentShield <= 0f)
         {
-            // Set death state to true
-            playerManager.isDead = true;
 
             
             // Return player to ship hub
-            spaceExplorationHandler.GetComponent<SpaceExplorationHandler>().GameOver();
+            spaceExplorationHandler.GetComponent<SpaceExplorationSettings>().GameOver();
         }
     }
 

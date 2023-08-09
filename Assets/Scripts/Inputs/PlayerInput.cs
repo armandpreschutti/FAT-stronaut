@@ -58,7 +58,7 @@ public class PlayerInput : MonoBehaviour
     public void EnableAxisInput()
     { 
         // Set the movement direction input vector
-        moveDirection = move.ReadValue<Vector2>();
+        moveDirection = new Vector2(0,move.ReadValue<Vector2>().y);
     }
 
     /// <summary>

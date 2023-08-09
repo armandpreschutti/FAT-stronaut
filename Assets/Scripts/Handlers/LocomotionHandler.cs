@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class LocomotionHandler : MonoBehaviour
 {
-    public PlayerManager playerManager;
+
     public Rigidbody2D rb;
     public BoxCollider2D boxCol;
     public SpriteRenderer spriteRenderer;
@@ -28,7 +28,7 @@ public class LocomotionHandler : MonoBehaviour
     /// </summary>
     public void FixedUpdate()
     {
-        Movement(playerManager.playerInput.moveDirection, rb.velocity);
+        Movement(GetComponent<PlayerInput>().moveDirection, rb.velocity);
     }
 
     /// <summary>
@@ -56,9 +56,9 @@ public class LocomotionHandler : MonoBehaviour
     /// </summary>
     public void SetComponents()
     {
-        playerManager = GetComponent<PlayerManager>();
-        rb = playerManager.GetComponent<Rigidbody2D>();
-        boxCol = playerManager.GetComponent<BoxCollider2D>();
-        spriteRenderer = playerManager.GetComponent<SpriteRenderer>();
+
+        rb = GetComponent<Rigidbody2D>();
+        boxCol = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 }

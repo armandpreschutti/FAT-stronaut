@@ -148,5 +148,5 @@ MonoBehaviour:
   isFood: 0
   isObstacle: 1
   objectSFX: {fileID: 8300000, guid: 12986a3425267144ab64ad0823f03e76, type: 3}
-  maxSize: 5
+  maxSize: 2
   minSize: 1.25

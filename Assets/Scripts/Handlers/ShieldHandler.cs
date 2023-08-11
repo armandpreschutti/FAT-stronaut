@@ -9,11 +9,11 @@ public class ShieldHandler : MonoBehaviour
 {
 
 
-    public GameObject shieldText;
+
     public GameObject shieldSlider;
-    public GameObject spaceExplorationHandler;
-    public float currentShield;
-    public float maxShield;
+    public GameObject spaceExplorationSettings;
+    public int currentShield;
+    public int maxShield;
 
     
 
@@ -27,7 +27,7 @@ public class ShieldHandler : MonoBehaviour
     {
 
         shieldSlider = GameObject.Find("ShieldBar");
-        spaceExplorationHandler = GameObject.Find("SpaceExplorationManager");
+        spaceExplorationSettings = GameObject.Find("SpaceExplorationManager");
         currentShield = maxShield;
     }
 
@@ -38,12 +38,10 @@ public class ShieldHandler : MonoBehaviour
         SetShieldBar(currentShield);
 
         // Check if current health is 0
-        if (currentShield <= 0f)
-        {
-
-            
+        if (currentShield <= 0)
+        { 
             // Return player to ship hub
-            spaceExplorationHandler.GetComponent<SpaceExplorationSettings>().GameOver();
+            spaceExplorationSettings.GetComponent<SpaceExplorationSettings>().GameOver();
         }
     }
 
@@ -53,6 +51,7 @@ public class ShieldHandler : MonoBehaviour
     /// /// <param name="value">desired value of health bar</param>
     public void SetShieldBar(float shieldValue)
     {
+        spaceExplorationSettings = GameObject.Find("SpaceExplorationSettings");
         shieldSlider.GetComponent<Slider>().value = shieldValue;
     }
 

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -19,6 +20,8 @@ public class ObjectHandler : MonoBehaviour
     public bool isFood;
     public bool isObstacle;
     public AudioClip objectSFX;
+    public float maxSize;
+    public float minSize;
 
     /// <summary>
     /// On awake, this function is called
@@ -26,6 +29,7 @@ public class ObjectHandler : MonoBehaviour
     private void Awake()
     {
         SetComponents();
+        SetScale();
         Invoke("DestroySelf", lifeTime);        
     }
 
@@ -110,6 +114,17 @@ public class ObjectHandler : MonoBehaviour
     public void DestroySelf()
     {
         Destroy(this.gameObject);
+    }
+    public void SetScale()
+    {
+        if (isObstacle)
+        {
+            transform.localScale *= Random.Range(minSize, maxSize);
+        }
+        else
+        {
+            return;
+        }
     }
 
 

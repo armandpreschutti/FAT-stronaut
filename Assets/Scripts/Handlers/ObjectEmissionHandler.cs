@@ -12,37 +12,43 @@ public class ObjectEmissionHandler : MonoBehaviour
     public GameObject player;
     public GameObject prefabToSpawn;
     public BoxCollider2D spawnArea;
-    public int spawnCount;
-    private bool isLooping = false;
+    //private bool isLooping = false;
     public float spawnTimeRate;
-    public float spawnRateMultiplier;
+   // public float spawnRateMultiplier;
     public float spawnRateThreshold;
-    public float startDelayTime;
 
     /// <summary>
     /// On start, this function is called
     /// </summary>
-    void Start()
+    void OnEnable()
     {
         SetComponents();
-        Invoke("StartLooping", startDelayTime);
+        StartCoroutine(RepeatSpawning());
     }
 
     public void Update()
     {
-        this.transform.position = player.transform.position;
+        this.transform.position = new Vector3(20, player.transform.position.y,0);
     }
-
+   
     /// <summary>
-    /// When called, this function executes a spawn prefab function repeatedly, with number 
-    /// of repetitions being equal to value of the spawn count variable
+    /// When called, this coroutine spawns a object then waits a certain amount of time before respawning again.
     /// </summary>
-    public void StartSpawn()
+    /// <returns></returns>
+    private IEnumerator RepeatSpawning()
     {
-        for (int i = 0; i < spawnCount; i++)
-        {
-            SpawnPrefab();
-        }
+        
+        /* if(spawnTimeRate >= spawnRateThreshold)
+         {
+             spawnTimeRate = spawnTimeRate * spawnRateMultiplier;
+         }
+         else
+         {
+             yield return new WaitForSeconds(spawnTimeRate);
+         }*/
+        yield return new WaitForSeconds(spawnTimeRate);
+        SpawnPrefab();
+        StartCoroutine(RepeatSpawning());
     }
 
     /// <summary>
@@ -68,38 +74,18 @@ public class ObjectEmissionHandler : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    /// <summary>
-    /// When called, this coroutine spawns a object then waits a certain amount of time before respawning again.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator MyCoroutine()
-    {
-        while (isLooping)
+    /*
+        public void StartLooping()
         {
-            SpawnPrefab();
-            if(spawnTimeRate >= spawnRateThreshold)
+            if (!isLooping)
             {
-                spawnTimeRate = spawnTimeRate * spawnRateMultiplier;
+                isLooping = true;
+                StartCoroutine(MyCoroutine());
             }
-            else
-            {
-                yield return new WaitForSeconds(spawnTimeRate);
-            }
-            yield return new WaitForSeconds(spawnTimeRate);
         }
-    }
 
-    public void StartLooping()
-    {
-        if (!isLooping)
+        public void StopLooping()
         {
-            isLooping = true;
-            StartCoroutine(MyCoroutine());
-        }
-    }
-
-    public void StopLooping()
-    {
-        isLooping = false;
-    }
+            isLooping = false;
+        }*/
 }

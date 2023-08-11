@@ -138,7 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1399149370776155943}
   col: {fileID: 1253314900552462746}
-  target: {fileID: 0}
   speed: 6
   healthValue: 0
   damageValue: 1
@@ -149,3 +148,5 @@ MonoBehaviour:
   isFood: 0
   isObstacle: 1
   objectSFX: {fileID: 8300000, guid: 12986a3425267144ab64ad0823f03e76, type: 3}
+  maxSize: 5
+  minSize: 1.25

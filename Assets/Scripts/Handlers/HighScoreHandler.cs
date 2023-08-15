@@ -9,6 +9,7 @@ public class HighScoreHandler : MonoBehaviour
     public int scoreMultiplier;
     public int highScore;
     public Text highScoreText;
+    public Sprite suits;
     
 
     /// <summary>

@@ -20,6 +20,7 @@ public class MainMenuSettings : MonoBehaviour
     public void Start()
     {
         highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        GameObject.Find("Preview").GetComponent<SpriteRenderer>().sprite = GameManager.GetInstance().currentSuit;
     }
 
     /// <summary>

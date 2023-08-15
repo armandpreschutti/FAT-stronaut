@@ -4959,14 +4959,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39f21ab015adb841bc74e2f04f05d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectType: 0
   rb: {fileID: 0}
   col: {fileID: 0}
-  target: {fileID: 0}
-  speed: 4
+  speed: 3
   healthValue: 15
+  damageValue: 0
   direction: {x: 0, y: 0}
-  lifeTime: 200
   playerIncreaseRate: 1.03
   objectEffect: {fileID: 2372946137838410910, guid: a4d9cffaf45cf3c4383c3321382bb308, type: 3}
-  isFood: 1
   objectSFX: {fileID: 8300000, guid: 6fec3a9a3c368964d8ce3ac73e400aff, type: 3}
+  suitSprite: {fileID: 0}
+  suitOptions: 0

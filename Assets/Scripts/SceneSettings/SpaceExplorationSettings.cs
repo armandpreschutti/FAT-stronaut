@@ -9,6 +9,7 @@ public class SpaceExplorationSettings : MonoBehaviour
     public GameObject player;
     public PlayableDirector playableDirector;
     public string nextScene = "GameOver";
+    public GameObject suitPrefab;
 
     /// <summary>
     /// On start, this function is called
@@ -16,21 +17,20 @@ public class SpaceExplorationSettings : MonoBehaviour
     public void Start()
     {
         SetComponents();
-
     }
-
+  
     /// <summary>
     /// When called, this function sets all components needed
     /// </summary>
     public void SetComponents()
     {
         player = GameObject.Find("Player");
+        player.GetComponent<SpriteRenderer>().sprite = GameManager.GetInstance().currentSuit;
         GameManager.GetInstance().GetComponent<HighScoreHandler>().enabled = true;
         GameManager.GetInstance().GetComponent<HighScoreHandler>().highScoreText = GameObject.Find("HighScoreText").GetComponent<Text>();
     }
     public void GameOver()
     {
-
         playableDirector.Play();
         player.GetComponent<HealthHandler>().enabled = false;
         player.GetComponent<ShieldHandler>().enabled = false;

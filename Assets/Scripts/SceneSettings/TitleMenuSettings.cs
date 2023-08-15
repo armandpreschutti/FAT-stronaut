@@ -18,15 +18,4 @@ public class TitleMenuSettings : MonoBehaviour
         SceneManager.LoadScene(nextScene);
     }
 
-    
-    public void EnableSettings()
-    {
-        settingsMenu.SetActive(true);
-    }
-
-
-    public void DisableSettings()
-    {
-        settingsMenu.SetActive(false);
-    }
 }

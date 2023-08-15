@@ -1,83 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2198436844683148520
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2198436844683148522}
-  - component: {fileID: 2198436844683148523}
-  - component: {fileID: 1556626085722361026}
-  - component: {fileID: 2389998693098899600}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2198436844683148522
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2198436844683148520}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2198436844683148523
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2198436844683148520}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905edac59a0631e4cbbaa8eca6267dde, type: 3}
-  m_Name: 
+  m_Script: {fileID: 11500000, guid: 17e1cee5eefa8ed4085290ec8f9a4611, type: 3}
+  m_Name: SuitSO
   m_EditorClassIdentifier: 
-  defaultSuit: {fileID: 21300000, guid: a47b527963f3b9247a9a95639e966887, type: 3}
-  currentSuit: {fileID: 0}
-  debugSuit: 
---- !u!114 &1556626085722361026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2198436844683148520}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1588eab30cc0314491ea1d94279e2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreMultiplier: 10
-  highScore: 0
-  highScoreText: {fileID: 0}
-  suits: {fileID: 0}
---- !u!114 &2389998693098899600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2198436844683148520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1789daaca07af4b4c92f186237d9ad50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suits:
+  lockedSuits:
   - {fileID: 21300000, guid: b1dcdf2eb30a6d34bbf2ce3080a1ce3e, type: 3}
   - {fileID: 21300000, guid: 022ad6a8453d0a742a522137f828a30a, type: 3}
   - {fileID: 21300000, guid: 2cbbf24c8ee1ee74ca6111556f53c148, type: 3}
@@ -87,15 +22,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a2b76c513aca3f944a9d600b60bea1d4, type: 3}
   - {fileID: 21300000, guid: 35d8ebf596aaa274781e08830f38ff4f, type: 3}
   - {fileID: 21300000, guid: 1a07130d8038f8f4386ffa6e690e7abc, type: 3}
-  - {fileID: 21300000, guid: 9ce02ffb5c5ab02489db9ac7796b5e26, type: 3}
   - {fileID: 21300000, guid: 6d47526b5208e8a4b94f34b2fe6dca95, type: 3}
   - {fileID: 21300000, guid: 820151b623dd7e143a32098f0e8e5e15, type: 3}
   - {fileID: 21300000, guid: 57a77c21cd8b8bc4c995c4649ccd7bf2, type: 3}
   - {fileID: 21300000, guid: a561e81901cc4d24db5a10ca0bd85179, type: 3}
   - {fileID: 21300000, guid: a47b527963f3b9247a9a95639e966887, type: 3}
-  - {fileID: 21300000, guid: 38ea5d30fe4db734d98b0eade5c15ec6, type: 3}
   - {fileID: 21300000, guid: d8f770ac9865e7c4594212555bb36a0c, type: 3}
-  - {fileID: 21300000, guid: 60b38a06c2ae56544b231619d4837760, type: 3}
   - {fileID: 21300000, guid: ba54921cc3b5c7a42a85633de8948c54, type: 3}
   - {fileID: 21300000, guid: bc1d21d6ce2049d4a9b77ffcb6785a2a, type: 3}
   - {fileID: 21300000, guid: ffc6a472800c04d48a4ad4305c9688ca, type: 3}
@@ -105,9 +37,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aba6bbfeb7eb2ae4090384ff1ce27a1f, type: 3}
   - {fileID: 21300000, guid: 3b5cd8fd3a00cbf4cb31787b3252e7f6, type: 3}
   - {fileID: 21300000, guid: 2a4eca56df0a5984f870288f53382fbc, type: 3}
-  - {fileID: 21300000, guid: 259df6d7755a6934fb414af89ab7f0e1, type: 3}
   - {fileID: 21300000, guid: 14525736fc3413742b9177e5ee18c9c0, type: 3}
-  - {fileID: 21300000, guid: cea08fe400cd85c4290e8fa1610c24a9, type: 3}
   - {fileID: 21300000, guid: 37a38a1e7f9d03a47b15aa9dd051fc8b, type: 3}
   - {fileID: 21300000, guid: 93a184eba1218aa4a82ef332d719e91a, type: 3}
   - {fileID: 21300000, guid: b3a831db937473947ab34f3c38ed9767, type: 3}
@@ -116,7 +46,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 882ba179ac0eccc40a4f2229d113d108, type: 3}
   - {fileID: 21300000, guid: 64da9c357b0cf8c4593b2092f8b01b50, type: 3}
   - {fileID: 21300000, guid: b7cde3f4e070a184bbca73209718fdcb, type: 3}
-  - {fileID: 21300000, guid: a57f23f0dbf35034c8d569ada55dda7a, type: 3}
   - {fileID: 21300000, guid: befc0e1fa2a7a4f44be65554e34c4af7, type: 3}
-  lockedSuits: []
-  unlockedSuits: []
+  unlockedSuits:
+  - {fileID: 0}

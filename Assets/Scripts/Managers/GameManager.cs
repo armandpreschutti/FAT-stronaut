@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     [Header("Components")]
     private static GameManager gameInstance;
+    public Sprite defaultSuit;
+    public Sprite currentSuit;
+    public string debugSuit;
 
     /// <summary>
     /// On awake, this function sets this game object to a game manager singleton
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviour
             // Destroy this game object
             Destroy(gameObject);
         }
+        PlayerPrefs.SetString("fatstronaut", "unlocked");
+        currentSuit = defaultSuit;
     }
     
     /// <summary>
@@ -36,6 +42,4 @@ public class GameManager : MonoBehaviour
     {
         return gameInstance;
     }
-
-
-}
+   }

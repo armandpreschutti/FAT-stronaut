@@ -13,14 +13,14 @@ public class SuitHandler : MonoBehaviour
     public List<Sprite> unlockedSuits;
 
 
-    public void Update()
+   /* public void Update()
     {
-        ///////////DEBUG CONTROLS/////////////////
+        *//*///////////DEBUG CONTROLS/////////////////
         if (Input.GetButtonDown("Fire2"))
         {
             ClearAllSuits();
-        }
-    }
+        }*//*
+    }*/
     public void Start()
     {
         CheckSuitSaveData();

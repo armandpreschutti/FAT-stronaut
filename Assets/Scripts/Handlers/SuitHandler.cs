@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SuitHandler : MonoBehaviour
 {
@@ -12,9 +14,11 @@ public class SuitHandler : MonoBehaviour
     public List<Sprite> lockedSuits;
     public List<Sprite> unlockedSuits;
 
+
     public void Start()
     {
         CheckSuitSaveData();
+
     }
     public void CheckSuitStatus()
     {

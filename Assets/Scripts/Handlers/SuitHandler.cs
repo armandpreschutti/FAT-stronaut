@@ -12,15 +12,6 @@ public class SuitHandler : MonoBehaviour
     public List<Sprite> lockedSuits;
     public List<Sprite> unlockedSuits;
 
-
-   /* public void Update()
-    {
-        *//*///////////DEBUG CONTROLS/////////////////
-        if (Input.GetButtonDown("Fire2"))
-        {
-            ClearAllSuits();
-        }*//*
-    }*/
     public void Start()
     {
         CheckSuitSaveData();

@@ -157,6 +157,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 2234930324682468797, guid: 5807cbf517bdf9244aed3e2ba3675893, type: 3}
   spawnRate: 10
+  prewarm: 1
 --- !u!212 &175224402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -700,6 +701,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 5745472905760666072, guid: d7feba59f5ef80e45b29bd872d4e00b7, type: 3}
   spawnRate: 4
+  prewarm: 1
 --- !u!212 &290322930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,6 +814,67 @@ Transform:
   m_Father: {fileID: 608567959}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &360731525
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3558749580036788630, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_Name
+      value: Stars
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50000054
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50000054
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.49999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980145386997925134, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0401926230f77f648b304ab6a348f3d3, type: 3}
 --- !u!1 &608567957
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +991,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 334606219930221904, guid: 12a2bc3e5a850184a89ab44a63bbab5b, type: 3}
   spawnRate: 30
+  prewarm: 0
 --- !u!212 &634818101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1181,6 +1245,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 5745472905760666072, guid: 5e09f0f12ca0fb4498cac7921ba5396b, type: 3}
   spawnRate: 4
+  prewarm: 1
 --- !u!212 &1106240230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1329,7 +1394,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.0627451, g: 0.10980392, b: 0.18039216, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.047058824, b: 0.19215687, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1929,6 +1994,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 2234930324682468797, guid: 2160b2550c377134096a272ac2923418, type: 3}
   spawnRate: 12
+  prewarm: 1
 --- !u!212 &1406302886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2075,6 +2141,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 5745472905760666072, guid: a457a767de3c99742995cf940a7f5bc7, type: 3}
   spawnRate: 4
+  prewarm: 1
 --- !u!212 &1415513371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2431,6 +2498,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 5745472905760666072, guid: 12ca44b6028622d4b8e8d5a8485df13c, type: 3}
   spawnRate: 4
+  prewarm: 1
 --- !u!212 &1460661187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2926,6 +2994,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 2234930324682468797, guid: 2160b2550c377134096a272ac2923418, type: 3}
   spawnRate: 10
+  prewarm: 1
 --- !u!212 &1930315983
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3259,7 +3328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 5745472905760666072, guid: 4ae8bd2f4fa7f0049b2d2e16d4c3b770, type: 3}
-  spawnRate: 2
+  spawnRate: 3
+  prewarm: 1
 --- !u!1 &1999105544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3364,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 2234930324682468797, guid: 5807cbf517bdf9244aed3e2ba3675893, type: 3}
   spawnRate: 2
+  prewarm: 1
 --- !u!212 &1999105546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3440,6 +3511,7 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   prefabToSpawn: {fileID: 2234930324682468797, guid: 5807cbf517bdf9244aed3e2ba3675893, type: 3}
   spawnRate: 5
+  prewarm: 1
 --- !u!212 &2114785137
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8697,7 +8769,9 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   currentHealth: 0
   MaxHealth: 100
-  depletionRate: 4
+  depletionRate: 2
+  depletionIncreaseRate: 10
+  depletionIncreaseValue: 1.03
 --- !u!212 &4301216281166235964
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -54,8 +54,7 @@ public class ObjectHandler : MonoBehaviour
         // Check if the collider is player
         if (collision.gameObject.tag == "Player")   
         {
-            // Increase the size of player
-            collision.gameObject.GetComponent<PlayerSizeHandler>().IncreaseSize(playerIncreaseRate);
+            
             // Play object VFX
             Instantiate(objectEffect, transform.position, Quaternion.identity);
             // Play object SFX
@@ -66,6 +65,8 @@ public class ObjectHandler : MonoBehaviour
                 case ObjectType.Food:
                     // Apply health to player
                     collision.gameObject.GetComponent<HealthHandler>().ChangeHealth(healthValue);
+                    // Increase the size of player
+                    collision.gameObject.GetComponent<PlayerSizeHandler>().IncreaseSize(playerIncreaseRate);
                     // Play chew animation
                     collision.transform.DOPunchScale(new Vector3(.25f, .25f, .25f), .5f);
                     break;
@@ -77,6 +78,7 @@ public class ObjectHandler : MonoBehaviour
                     break;
                 case ObjectType.Suit:
                     GameManager.GetInstance().GetComponent<SuitHandler>().UnlockSuit(suitSprite);
+                    GameManager.GetInstance().sessionUnlocked.Add(suitSprite);
                     Destroy(this.gameObject);
                     break;
                 default:

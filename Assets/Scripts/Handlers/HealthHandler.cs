@@ -13,6 +13,8 @@ public class HealthHandler : MonoBehaviour
     public float currentHealth;
     public float MaxHealth;
     public float depletionRate;
+    public float depletionIncreaseRate;
+    public float depletionIncreaseValue;
 
     /// <summary>
     /// This function is called when script is enabled
@@ -21,6 +23,7 @@ public class HealthHandler : MonoBehaviour
     {
         SetComponents();
         ResetHealth();
+        //StartCoroutine(IncreaseDepletionRate());
     }
 
     /// <summary>
@@ -85,6 +88,7 @@ public class HealthHandler : MonoBehaviour
     {
         // add helath value to current health
         currentHealth += health;
+        depletionRate *= depletionIncreaseValue;
     }
 
     /// <summary>
@@ -104,5 +108,11 @@ public class HealthHandler : MonoBehaviour
 
         healthSlider = GameObject.Find("HealthBar");
         spaceExplorationSettings = GameObject.Find("SpaceExplorationSettings");
+    }
+    IEnumerator IncreaseDepletionRate()
+    {
+        yield return new WaitForSeconds(depletionIncreaseRate);
+        depletionRate *= depletionIncreaseValue;
+        StartCoroutine(IncreaseDepletionRate());
     }
 }

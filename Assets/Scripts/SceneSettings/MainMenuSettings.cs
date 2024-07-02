@@ -52,7 +52,7 @@ public class MainMenuSettings : MonoBehaviour
 
         // Update the object's position
         playerRb.AddForce(randomDirection * floatSpeed);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("Delay Called");
         StartCoroutine(PreviewFloat());
         Debug.Log("RepeatCalled");
@@ -60,19 +60,26 @@ public class MainMenuSettings : MonoBehaviour
 
     public void SetSuitSelectionUI()
     {
-        GameObject.Find("Camera").transform.position = new Vector3(1, 0, -20);
+        GameObject.Find("Camera").transform.position = new Vector3(3f, 0f, -10f);
         menuPanel.SetActive(false);
         suitsPanel.SetActive(true);
         eventSystem.SetSelectedGameObject(firstSuitSelectionButton);
-        
+
     }
     public void SetMenuSelectionUI()
     {
-        GameObject.Find("Camera").transform.position = new Vector3(0, -1, -30);
+        GameObject.Find("Camera").transform.position = new Vector3(1f, 0f, -10f);
         menuPanel.SetActive(true);
         suitsPanel.SetActive(false);
         eventSystem.SetSelectedGameObject(firstMenuSelectionButton);
-    }
 
+    }
+    public void ClearSaveData()
+    {
+        PlayerPrefs.DeleteAll();
+        GameManager.GetInstance().currentSuit = GameManager.GetInstance().defaultSuit;
+        GameManager.GetInstance().GetComponent<SuitHandler>().ClearAllSuits();
+        SceneManager.LoadScene("MainMenu");
+    }
 
 }

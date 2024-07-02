@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Sprite defaultSuit;
     public Sprite currentSuit;
     public string debugSuit;
+    public List<Sprite> sessionUnlocked;
 
     /// <summary>
     /// On awake, this function sets this game object to a game manager singleton
@@ -41,5 +42,9 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance()
     {
         return gameInstance;
+    }
+    public void AddSessionUnlockable(Sprite sprite)
+    {
+        sessionUnlocked.Add(sprite);
     }
    }

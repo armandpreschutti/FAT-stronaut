@@ -13,7 +13,7 @@ public class ObjectEmissionHandler : MonoBehaviour
 
     public GameObject prefabToSpawn;
     public float spawnRate;
-
+    public bool prewarm;
 
     /// <summary>
     /// On start, this function is called
@@ -22,6 +22,10 @@ public class ObjectEmissionHandler : MonoBehaviour
     {
         spawnArea = GetComponent<BoxCollider2D>();
         StartCoroutine(RepeatSpawning());
+        if(prewarm)
+        {
+            SpawnPrefab();
+        }
     }
 
     /// <summary>
